@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Pages</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div id="header">
+        <h4>Dashboard - Group 3</h4>
+    </div>
+
+    <div id="side-nav-left" class="side-nav">
+        <p>ADMIN PAGE</p>
+        <button class="tablinks" onclick="openTab(event,'product-list')">Product list</button>
+        <button class="tablinks" onclick="openTab(event,'customer-order')">Customer Order</button>
+        <button class="tablinks" onclick="openTab(event,'customer-comment')">Customer comment</button>
+        
+    </div>
+
+    <div id="customer-comment" class="tabcontent">Trang 3</div>
+    <div id="customer-order" class="tabcontent">Trang 2</div>
+    
+
+
+
+
+
+    <!-- PRODUCLIST CONTENT ------------------------------------------------------------------------------------------------------------------------------------------>
+    <div id="product-list" class="tabcontent">
+        <button id="addNew" onclick="document.getElementById('id02').style.display='block'" style="font-size: x-large; font-weight: 200;">+</button>
+       
+        
+        <!-- Table - product list -->
+        <table class="table">
+            <thead>
+                <tr style="background-color: white;">
+                    <th>STT</th>
+                    <th>Item Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="listProduct">
+               
+            </tbody>
+        </table>
+
+    </div>
+
+    <!-- Form for changing product list --------------------------------------------------------------------------------------------------------------------------------->
+        <!-- The modal -->
+    <div id="id01" class="modal">
+        
+        <!-- Modal content -->
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content animate">
+            <div class="img"></div>
+            <div class="container">
+                <h1 style="text-align: center;">Sửa thông tin</h1>
+                <label for="Name"></label>
+                
+                <label for="changeName">Product Name</label>
+                <input type="text" id="changeName" placeholder="Product Name">
+                
+                <label for="changeCategory">Category</label>
+                <input type="text" id="changeCategory" placeholder="Category">
+                
+                <label for="changePrice">Price</label>
+                <input type="text" id="changePrice" placeholder="Price">
+
+                <label for="changeQuantity">Quantity</label>
+                <input type="text" id="changeQuantity" placeholder="Quantity">
+                
+                <button class="button1" type="submit" style="background-color: #4CAF50;" onclick="change()">Change</button>
+                <button class="button1" type="button" style="background-color: red;" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+        </form>    
+    </div>
+    <!-- Form for Add new product --------------------------------------------------------------------------------------------------------------------------------->
+        <!-- The modal -->
+    <div id="id02" class="modal">
+        
+        <!-- Modal content -->
+        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content animate">
+            <div class="img"></div>
+            <div class="container">
+                <h1 style="text-align: center;">Thêm sản phẩm mới</h1>
+                <label for="Name"></label>
+                
+                <label for="newName">Product Name</label>
+                <input type="text" id="newName" placeholder="Product Name">
+
+                <label for="newCategory">Category</label>
+                <input type="text" id="newCategory" placeholder="Category">
+                
+                <label for="newPrice">Price</label>
+                <input type="text" id="newPrice" placeholder="Price">
+
+                <label for="newQuantity">Quantity</label>
+                <input type="text" id="newQuantity" placeholder="Quantity">       
+
+
+                <button class="button1" type="submit" style="background-color: #4CAF50;" onclick="addNew()">Add New</button>
+                <button class="button1" type="button" style="background-color: red;" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+        </form>    
+    </div>
+
+
+
+    
+    
+
+
+
+<!-- DIVISION SIDE BAR RIGHT ----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div id="side-bar-right">This is the side bar right</div>
+    
+    
+    
+    
+    
+    
+    
+    <script src="admin.js"></script>
+</body>
+</html>
