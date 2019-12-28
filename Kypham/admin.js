@@ -49,12 +49,15 @@ function displayListProduct() {
     };
       
     list += `
-    <tr>
-      <td>${i+1}</td>
+      <tr>
+        <td>${e.no}</td>
         <td>${e.name}</td>
         <td>${e.category}</td>
         <td>${e.price}</td>
         <td>${e.quantity}</td>
+        <td>${e.saleOff}</td>
+        <td>${e.imgs}</td>
+        <td>${e.description}</td>
         <td>${status}</td>
         <td>
             <button class="button" onclick="document.getElementById('id01').style.display='block'">
@@ -65,7 +68,7 @@ function displayListProduct() {
             </button>
         </td>
       </tr>
-    `
+      `
   }
   document.getElementById("listProduct").innerHTML = list;
 }
