@@ -50,6 +50,7 @@ function displayListProduct() {
       
     list += `
       <tr>
+        <td>${i+1}</td>
         <td>${e.no}</td>
         <td>${e.name}</td>
         <td>${e.category}</td>

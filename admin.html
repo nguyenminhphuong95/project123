@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Pages</title>
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
     <div id="header">
         <h4>Dashboard - Group 3</h4>
     </div>
 
-    <div id="side-nav-left" class="side-nav">
+    <!-- <div id="side-nav-left" class="side-nav">
         <p>ADMIN PAGE</p>
         <button class="tablinks" onclick="openTab(event,'product-list')">Product list</button>
         <button class="tablinks" onclick="openTab(event,'customer-order')">Customer Order</button>
         <button class="tablinks" onclick="openTab(event,'customer-comment')">Customer comment</button>
         
-    </div>
+    </div> -->
 
-    <div id="customer-comment" class="tabcontent">Trang 3</div>
+    <!-- <div id="customer-comment" class="tabcontent">Trang 3</div>
     <div id="customer-order" class="tabcontent">Trang 2</div>
-    
+     -->
 
 
 
@@ -37,15 +38,16 @@
         <table class="table">
             <thead>
                 <tr style="background-color: white;">
-                    <th>No</th>
-                    <th>Item Name</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Status</th>
-                    <th>Sale Off</th>
-                    <th>Decription</th>
-                    <th>Action</th>
+                    <th>STT</th>
+                    <th>Mã sản phẩm</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Loại</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>% giảm giá</th>
+                    <th>Hình ảnh</th>
+                    <th>Mô tả</th>
+                    <th>Sửa/Xóa</th>
                 </tr>
             </thead>
             <tbody id="listProduct">
@@ -83,6 +85,7 @@
             </div>
         </form>    
     </div>
+    
     <!-- Form for Add new product --------------------------------------------------------------------------------------------------------------------------------->
         <!-- The modal -->
     <div id="id02" class="modal">
@@ -116,21 +119,6 @@
         </form>    
     </div>
 
-
-
-    
-    
-
-
-
-<!-- DIVISION SIDE BAR RIGHT ----------------------------------------------------------------------------------------------------------------------------------------------------------------->
-    <div id="side-bar-right">This is the side bar right</div>
-    
-    
-    
-    
-    
-    
     
     <script src="admin.js"></script>
 </body>
