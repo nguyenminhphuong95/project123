@@ -13,25 +13,10 @@
         <h4>Dashboard - Group 3</h4>
     </div>
 
-    <!-- <div id="side-nav-left" class="side-nav">
-        <p>ADMIN PAGE</p>
-        <button class="tablinks" onclick="openTab(event,'product-list')">Product list</button>
-        <button class="tablinks" onclick="openTab(event,'customer-order')">Customer Order</button>
-        <button class="tablinks" onclick="openTab(event,'customer-comment')">Customer comment</button>
-        
-    </div> -->
 
-    <!-- <div id="customer-comment" class="tabcontent">Trang 3</div>
-    <div id="customer-order" class="tabcontent">Trang 2</div>
-     -->
-
-
-
-
-
-    <!-- PRODUCLIST CONTENT ------------------------------------------------------------------------------------------------------------------------------------------>
+    <!-- PRODUCLIST CONTENT --------------------------------------------------------------------------------------------------------------------------------------->
     <div id="product-list" class="tabcontent">
-        <button id="addNew" onclick="document.getElementById('id02').style.display='block'" style="font-size: x-large; font-weight: 200;">+</button>
+        <button id="addNew" onclick="document.getElementById('id02').style.display='block'" class="btn btn-primary" style="font-size: 15px; font-weight: bold;">Thêm mới</button>
        
         
         <!-- Table - product list -->
@@ -57,31 +42,60 @@
 
     </div>
 
-    <!-- Form for changing product list --------------------------------------------------------------------------------------------------------------------------------->
+    <!-- Form for changing product list --------------------------------------------------------------------------------------------------------------------------->
         <!-- The modal -->
     <div id="id01" class="modal">
         
         <!-- Modal content -->
-        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-        <form class="modal-content animate">
+        <form class="modal-content animate" onsubmit="change()">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
             <div class="img"></div>
             <div class="container">
                 <h1 style="text-align: center;">Sửa thông tin</h1>
                 
-                <label for="changeName">Product Name</label>
-                <input type="text" id="changeName" placeholder="Product Name">
+                <div class=".form-group">   
+                    <label for="changeNo">Mã sản phẩm</label>
+                    <input type="text" readonly id="changeNo" placeholder="Nhập mã sản phẩm" style="background-color: rgb(235, 235, 235);">
+                </div>
                 
-                <label for="changeCategory">Category</label>
-                <input type="text" id="changeCategory" placeholder="Category">
+                <div class=".form-group">   
+                    <label for="changeName">Tên sản phẩm</label>
+                    <input type="text" id="changeName" placeholder="Nhập tên sản phẩm" required>
+                </div>
                 
-                <label for="changePrice">Price</label>
-                <input type="text" id="changePrice" placeholder="Price">
+                <div class=".form-group">   
+                    <label for="changeCategory">Phân loại</label>
+                    <input type="text" id="changeCategory" placeholder="Nhập loại sản phẩm" required>
+                </div>
+                
+                <div class=".form-group">   
+                    <label for="changePrice">Đơn giá</label>
+                    <input type="number" id="changePrice" placeholder="Nhập đơn giá sản phẩm">
+                </div>
+                
+                <div class=".form-group">   
+                    <label for="changeQuantity">Số lượng</label>
+                    <input type="number" id="changeQuantity" placeholder="Nhập số lượng">       
+                </div>
 
-                <label for="changeQuantity">Quantity</label>
-                <input type="text" id="changeQuantity" placeholder="Quantity">
+                <div class=".form-group">   
+                    <label for="changeDiscount">Giảm giá</label>
+                    <input type="text" id="changeDiscount" placeholder="Nhập thông tin giảm giá">       
+                </div>
+               
+                <div class=".form-group">   
+                    <label for="changeImages">Đường linh ảnh</label>
+                    <input type="text" id="changeImages" placeholder="Nhập link ảnh">       
+                </div>
+        
+                <div class=".form-group">   
+                    <label for="changeDescription">Mô tả</label>
+                    <textarea type="text" id="changeDescription" placeholder="Nhập thông tin mô tả"></textarea>    
+                </div>
+
                 
-                <button class="button1" type="submit" style="background-color: #4CAF50;" onclick="change()">Change</button>
-                <button class="button1" type="button" style="background-color: red;" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <button class="btn btn-success button1" type="submit" >Change</button>
+                <button class="btn btn-danger button1" type="button" onclick="document.getElementById('id01').style.display='none'">Cancel</button>
             </div>
         </form>    
     </div>
@@ -91,30 +105,53 @@
     <div id="id02" class="modal">
         
         <!-- Modal content -->
-        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-        <form class="modal-content animate">
+        <form class="modal-content animate" onsubmit="addNew()">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
             <div class="img"></div>
             <div class="container">
                 <h1 style="text-align: center;">Thêm sản phẩm mới</h1>
+                <div class=".form-group">   
+                    <label for="newNo">Mã sản phẩm</label>
+                    <input type="text" id="newNo" placeholder="Nhập mã sản phẩm" required>
+                </div>
                 
-                <label for="newName">No.</label>
-                <input type="text" id="NewNo" placeholder="Mã sản phẩm">
+                <div class=".form-group">   
+                    <label for="newName">Tên sản phẩm</label>
+                    <input type="text" id="newName" placeholder="Nhập tên sản phẩm" required>
+                </div>
                 
-                <label for="newName">Product Name</label>
-                <input type="text" id="newName" placeholder="Tên sản phẩm">
-
-                <label for="newCategory">Category</label>
-                <input type="text" id="newCategory" placeholder="Loại sản phẩm">
+                <div class=".form-group">   
+                    <label for="newCategory">Phân loại</label>
+                    <input type="text" id="newCategory" placeholder="Nhập loại sản phẩm">
+                </div>
                 
-                <label for="newPrice">Price</label>
-                <input type="text" id="newPrice" placeholder="Price">
+                <div class=".form-group">   
+                    <label for="newPrice">Đơn giá</label>
+                    <input type="number" id="newPrice" placeholder="Nhập đơn giá sản phẩm">
+                </div>
+                
+                <div class=".form-group">   
+                    <label for="newQuantity">Số lượng</label>
+                    <input type="number" id="newQuantity" placeholder="Nhập số lượng">       
+                </div>
 
-                <label for="newQuantity">Quantity</label>
-                <input type="text" id="newQuantity" placeholder="Quantity">       
-
-
-                <button class="button1" type="submit" style="background-color: #4CAF50;" onclick="addNew()">Add New</button>
-                <button class="button1" type="button" style="background-color: red;" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+                <div class=".form-group">   
+                    <label for="newDiscount">Giảm giá</label>
+                    <input type="text" id="newDiscount" placeholder="Nhập thông tin giảm giá">       
+                </div>
+               
+                <div class=".form-group">   
+                    <label for="newImages">Đường linh ảnh</label>
+                    <input type="text" id="newImages" placeholder="Nhập link ảnh">       
+                </div>
+        
+                <div class=".form-group">   
+                    <label for="newDescription">Mô tả</label>
+                    <textarea type="text" id="newDescription" placeholder="Nhập thông tin mô tả"></textarea>    
+                </div>
+        
+                <button class="btn btn-success button1" type="submit" >Thêm mới</button>
+                <button class="btn btn-danger button1" type="button" onclick="document.getElementById('id02').style.display='none'">Cancel</button>
             </div>
         </form>    
     </div>

@@ -1,5 +1,5 @@
 
-/// Defines a Products storage
+/// -------------------------------------------------------------------------ĐỊNH NGHĨA BIẾN LƯU TRỮ DANH SÁCH SẢN PHẨM-----------------------------------------------
 let listProduct= [];
 var indexChange;
 
@@ -7,46 +7,12 @@ var indexChange;
 window.onload = getList();
 window.onload = displayListProduct();
 
-
-
-// tabcontent đổi khi chọn giữa các trang
-function openTab(evt, Tab) {
-    // Declare all variables
-    let i, tabcontent, tablinks;
-  
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-  
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-  
-    // Show the current tab, and add an "active" class to the link that opened the tab
-    document.getElementById(Tab).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-
-
-
-
-
-  // Show list to web
+//  -------------------------------------------------------------------------HIỂN THỊ DANH SÁCH LÊN WEB---------------------------------------------------------
 
 function displayListProduct() {
   let list = ""; 
   for (let i = 0; i < listProduct.length; i++) {
     const e = listProduct[i];
-    let status;
-    if(e.quantity<=10){
-      status = "Sắp hết";
-    } else {
-      status= "Còn";
-    };
       
     list += `
       <tr>
@@ -54,19 +20,14 @@ function displayListProduct() {
         <td>${e.no}</td>
         <td>${e.name}</td>
         <td>${e.category}</td>
-        <td>${e.price}</td>
+        <td>${format_curency(e.price)} đ</td>
         <td>${e.quantity}</td>
-        <td>${e.saleOff}</td>
-        <td>${e.imgs}</td>
+        <td>${e.discount}</td>
+        <td>${e.images}</td>
         <td>${e.description}</td>
-        <td>${status}</td>
         <td>
-            <button class="button" onclick="document.getElementById('id01').style.display='block'">
-                <img src="img/button-change.png" alt="change" class="img-button" onclick="getChangeIndex(${i})">        
-            </button>
-            <button class="button">
-                <img src="img/button-delete.png" alt="remove" class="img-button" onclick="remove(${i})">     
-            </button>
+            <button class="btn btn-success" onclick="document.getElementById('id01').style.display='block'; getChangeIndex(${i})">Sửa</button>
+            <button class="btn btn-danger" onclick="remove(${i})">Xóa</button>
         </td>
       </tr>
       `
@@ -74,59 +35,81 @@ function displayListProduct() {
   document.getElementById("listProduct").innerHTML = list;
 }
 
-// add new to list products
+// ---------------------------------------------------------------------------------THÊM MỚI SẢN PHẨM --------------------------------------------------------
 function addNew() {
+  let newNo = document.getElementById('newNo').value;
   let name = document.getElementById('newName').value;
   let category = document.getElementById('newCategory').value;
   let price = document.getElementById('newPrice').value;
   let quantity = document.getElementById('newQuantity').value;
+  let discount = document.getElementById('newDiscount').value;
+  let images = document.getElementById('newImages').value;
+  let description = document.getElementById('newDescription').value;
+  
   listProduct.push({
+    "no": newNo,
     "name": name,
     "category": category,
-    "price": price,
-    "quantity": quantity
+    "price": Number(price),
+    "quantity": quantity,
+    "discount": discount,
+    "images": images,
+    "description": description,
   });
   displayListProduct();
-  document.getElementById('newName').value="";
-  document.getElementById('newCategory').value="";
-  document.getElementById('newPrice').value="";
-  document.getElementById('newQuantity').value="";
   saveList();
 }
 
-// change list
+//  --------------------------------------------------------------------------------SỬA SẢN PHẨM---------------------------------------------------------
 function getChangeIndex(i) {
   indexChange = i;
-  document.getElementById('newName').value="";
-  document.getElementById('newCategory').value="";
-  document.getElementById('newPrice').value="";
-  document.getElementById('newQuantity').value="";
+  
+    document.getElementById('changeNo').value = listProduct[i].no
+    document.getElementById('changeName').value = listProduct[i].name;
+    document.getElementById('changeCategory').value = listProduct[i].category;
+    document.getElementById('changePrice').value = listProduct[i].price;
+    document.getElementById('changeQuantity').value = listProduct[i].quantity;
+    document.getElementById('changeDiscount').value = listProduct[i].discount;
+    document.getElementById('changeImages').value = listProduct[i].images;
+    document.getElementById('changeDescription').value = listProduct[i].description;
+  
+    
+
 }
 function change() {
   let name = document.getElementById('changeName').value;
   let category = document.getElementById('changeCategory').value;
   let price = document.getElementById('changePrice').value;
   let quantity = document.getElementById('changeQuantity').value;
-  listProduct[indexChange] = {
-    "name": name,
-    "category": category,
-    "price": price,
-    "quantity": quantity
-  }
+  let discount = document.getElementById('changeDiscount').value;
+  let images = document.getElementById('changeImages').value;
+  let description = document.getElementById('changeDescription').value;
+  
+  listProduct[indexChange].name = name;
+  listProduct[indexChange].category = category;
+  listProduct[indexChange].price = price;
+  listProduct[indexChange].quantity = quantity;
+  listProduct[indexChange].discount = discount;
+  listProduct[indexChange].images = images;
+  listProduct[indexChange].description = description;
+    
+
   displayListProduct();
   saveList();
 }
   
 
-// remove from the list
+// ----------------------------------------------------------------------------------------- XÓA SẢN PHẨM------------------------------------------------
 function remove(i) {
-  listProduct.splice(i,1);
+  if(confirm("Bạn có muốn xóa mục này không?")) {
+    listProduct.splice(i,1);
 
-  displayListProduct();
-  saveList();
+    displayListProduct();
+    saveList();
+  }
 }
 
-// store and get list product from localstorage
+//------------------------------------------------------------------------------------------ LƯU VÀ LẤY DỮ LIỆU KHI LOAD WEB -----------------------------------------------
 function saveList() {
   let list = JSON.stringify(listProduct,null,2);
   localStorage.setItem("listProduct",list);
@@ -137,11 +120,26 @@ function getList() {
 }
 
 
-// MODAL 
-let modal = document.getElementById('id01');
+//  -----------------------------------------------------------------------------------------TẮT MODAL KHI KICK RA NGOÀI------------------------------------------------
+let modal1 = document.getElementById('id01');
+let modal2 = document.getElementById('id02');
 
 window.onclick = function (event) {
-  if(event.taget == modal) {
-    modal.style.display = 'none';
+  if(event.target == modal1) {
+    modal1.style.display = 'none';
   }
+  if(event.target == modal2) {
+    modal2.style.display = 'none';
+  }
+}
+
+
+//  ------------------------------------------------------------------------------------------FORMAT DẠNG TIỀN TỆ-----------------------------------------------
+function format_curency(x) {
+ 
+    x = parseFloat(String(x).replace(/,/g, ""))
+                    .toFixed(0)
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x;
 }
