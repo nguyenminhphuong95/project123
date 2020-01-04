@@ -24,7 +24,7 @@ function displayTable(a) {
         <td>${format_curency(e.price)} đ</td>
         <td>${e.quantity}</td>
         <td>${e.discount}</td>
-        <td>${e.images}</td>
+        <td><img src="img/product/${e.no}.jpg" alt="${e.name}" width="100px"></td>
         <td>${e.description}</td>
         <td>
             <button class="btn btn-success" onclick="document.getElementById('id01').style.display='block'; getChangeIndex(${i})">Sửa</button>
@@ -34,6 +34,12 @@ function displayTable(a) {
       `
   }
   document.getElementById("listProduct").innerHTML = list;
+  let sum=0; //-----------------------------------------GRAND TOTAL THEO LỌC---------------->
+  for (let i = 0; i < a.length; i++) {
+    const e = a[i];
+    sum += e.price* e.quantity;
+  }
+  document.getElementById("grandTotal").innerHTML = `${format_curency(sum)} vnđ`
 }
 
 // ---------------------------------------------------------------------------------THÊM MỚI SẢN PHẨM --------------------------------------------------------
@@ -44,7 +50,7 @@ function addNew() {
   let price = document.getElementById('newPrice').value;
   let quantity = document.getElementById('newQuantity').value;
   let discount = document.getElementById('newDiscount').value;
-  let images = document.getElementById('newImages').value;
+  let images = document.getElementById('newImages').value.split(','); /////////////////////////////////////////////////////////////////// <--
   let description = document.getElementById('newDescription').value;
   
   listProduct.push({
@@ -170,3 +176,33 @@ function sortItem(a) {
     return value1['no'].localeCompare(value2['no']);
   });
 }
+
+
+
+// -------------------------------------------------------SUPER SEARCH---------------OTHER SEARCH FUNCTION---------------------------------->
+$(document).ready(function() {
+  $(".search").keyup(function () {
+    var searchTerm = $(".search").val();
+    var listItem = $('.results tbody').children('tr');
+    var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+    
+  $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+        return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+    }
+  });
+    
+  $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+    $(this).attr('visible','false');
+  });
+
+  $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+    $(this).attr('visible','true');
+  });
+
+  var jobCount = $('.results tbody tr[visible="true"]').length;
+    $('.counter').text(jobCount + ' item');
+
+  if(jobCount == '0') {$('.no-result').show();}
+    else {$('.no-result').hide();}
+		  });
+});
