@@ -14,10 +14,26 @@
     </div>
 
 
-    <!-- PRODUCLIST CONTENT --------------------------------------------------------------------------------------------------------------------------------------->
+    <!-- --------------------------------------------------------------------------------- PRODUCLIST CONTENT------------------------------------------------------>
     <div id="product-list" class="tabcontent">
-        <button id="addNew" onclick="document.getElementById('id02').style.display='block'" class="btn btn-primary" style="font-size: 15px; font-weight: bold;">Thêm mới</button>
-       
+        <div class="row">
+            
+            <div class="col-sm-8">
+                <button id="addNew" onclick="document.getElementById('id02').style.display='block'" class="btn btn-primary" style="font-size: 15px; font-weight: bold;">Thêm mới</button>
+
+            </div>
+            
+            <div class="col-sm-4">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Tên sản phẩm" id="search">
+                    <div class="input-group-append">
+                        <button style="margin:8px 0px;" class="input-group-text" onclick="search()">Tìm</button>
+                        <button style="margin:8px 0px;" class="input-group-text" onclick="displayTable(listProduct)">Bỏ tìm</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
         
         <!-- Table - product list -->
         <table class="table">
@@ -42,7 +58,7 @@
 
     </div>
 
-    <!-- Form for changing product list --------------------------------------------------------------------------------------------------------------------------->
+    <!-- ----------------------------------------------------------------------------------Form for changing product list ----------------------------------------->
         <!-- The modal -->
     <div id="id01" class="modal">
         
@@ -100,7 +116,7 @@
         </form>    
     </div>
     
-    <!-- Form for Add new product --------------------------------------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------Form for Add new product------------------------------------------------->
         <!-- The modal -->
     <div id="id02" class="modal">
         

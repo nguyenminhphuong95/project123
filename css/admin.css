@@ -161,3 +161,7 @@ textarea {
     from {-webkit-transform: scale(0)}
     to{-webkit-transform: scale(1)}
 }
+#search {
+    position: ;
+    width: 300px;
+}

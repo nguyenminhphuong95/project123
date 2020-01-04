@@ -5,14 +5,15 @@ var indexChange;
 
 //load wweb
 window.onload = getList();
-window.onload = displayListProduct();
+window.onload = displayTable(listProduct);
 
 //  -------------------------------------------------------------------------HIỂN THỊ DANH SÁCH LÊN WEB---------------------------------------------------------
 
-function displayListProduct() {
+function displayTable(a) {
+  sortItem(a);
   let list = ""; 
-  for (let i = 0; i < listProduct.length; i++) {
-    const e = listProduct[i];
+  for (let i = 0; i < a.length; i++) {
+    const e = a[i];
       
     list += `
       <tr>
@@ -56,7 +57,7 @@ function addNew() {
     "images": images,
     "description": description,
   });
-  displayListProduct();
+  displayTable(listProduct);
   saveList();
 }
 
@@ -94,7 +95,7 @@ function change() {
   listProduct[indexChange].description = description;
     
 
-  displayListProduct();
+  displayTable(listProduct);
   saveList();
 }
   
@@ -104,7 +105,7 @@ function remove(i) {
   if(confirm("Bạn có muốn xóa mục này không?")) {
     listProduct.splice(i,1);
 
-    displayListProduct();
+    displayTable(listProduct);
     saveList();
   }
 }
@@ -142,4 +143,30 @@ function format_curency(x) {
                     .toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return x;
+}
+
+// ------------------------------------------------------------------------------------------TÌM KIẾM VÀ HIỂN THỊ  LÊN BẢNG ----------------------->
+function search() {
+  let search = document.getElementById("search").value;
+  let x = [];
+  for (let i = 0; i < listProduct.length; i++) {
+    const e = listProduct[i];
+    if( e["name"].includes(search)) {
+      x.push(e);
+    }
+  }
+  if (search == ""){
+    x = listProduct;
+
+  }
+  
+  displayTable(x);
+}
+
+// -------------------------------------------------------------------------------------SORT ITEM---------------------------------------------->
+
+function sortItem(a) {
+  a.sort(function(value1, value2){
+    return value1['no'].localeCompare(value2['no']);
+  });
 }
