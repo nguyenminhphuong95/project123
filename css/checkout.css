@@ -1,0 +1,48 @@
+.division{
+    padding: 40px;
+    border-right: 2px solid #b3b3b3  ;
+    min-height: 595px;
+    margin-top: 10px;
+}
+
+.form-check-inline{
+    padding-left: 20px;
+}
+.form-check {
+    margin-top: 20px;
+}
+#container-fluid {
+    /* background-color: #e6e6e6; */
+}
+h4 {
+    width: 100%;
+}
+.row {
+    width: 100%;
+}
+form {
+    width: 100%;
+}
+.logo {
+    height: 20px;
+}
+#header {
+    width: 100%;
+    height: 100px;
+    background-color: #ccf0af;
+}
+#footer {
+    width: 100%;
+    height: 100px;
+    background-color: #ccf0af;
+    margin-top: 40px;
+}
+.cart-row {
+  
+    border-top: 02px solid #c4c4c4;
+    /* background-color: orange; */
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+
+}
