@@ -1,17 +1,215 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-
-    
+    <title>Shop Love</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
 </head>
-
 <body>
+    <div class="header-nav">                                            <!-- Brand/logo -->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
+            <a class="navbar-brand" href="#" style="margin-left: 20px;">
+                <img src="img/logo/Loveshop.png" alt="logo" style="width: 100px;">
+            </a>
+            <!-- Links -->  
+            <ul class="navbar-nav">
 
+                <li class="nav-item">
+                    <a class="nav-link" href="#">TRANG CHỦ</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ÁO KHOÁC NAM</a>
+                </li>
+
+                <li class="nav-item dropdown">                                                      <!-- Dropdown -->
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">SP ĐÔNG</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Áo gió</a>
+                        <a class="dropdown-item" href="#">Áo khoác bò</a>
+                        <a class="dropdown-item" href="#">Áo phao</a>
+                        <a class="dropdown-item" href="#">Áo nỉ</a>
+                        <a class="dropdown-item" href="#">Áo da</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ÁO ĐÔI</a>
+                </li>
+
+                <li class="nav-item dropdown">                                                     <!-- Dropdown -->
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">PHỤ KIỆN</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Giay da</a>
+                        <a class="dropdown-item" href="#">Thắt lưng</a>
+                        <a class="dropdown-item" href="#">Túi xách</a>
+                        <a class="dropdown-item" href="#">Ví da</a>
+                        <a class="dropdown-item" href="#">Đồ lớt nam</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">TIN TỨC</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">LIÊN HỆ</a>
+                </li>
+                <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                    <form class="form-inline" action="/action_page.php">
+                        <input type="text" name="q" placeholder="Tìm kiếm" id="text_search" class="form_search" style="width: 300px;">
+                            <button type="submit" class="header-button_submit">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                    </form>
+                </nav>
+            </ul>
+        </nav>
+    </div>
+    <!------------------------------------------------------------------------------------------------------------SILE SHOW ẢNH----> 
+    <div class="slideshow-container">
+        <div class="mySlides fade show" style="width: 100%">
+            <img src="img/index/1.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade show" style="width: 100%">
+            <img src="img/index/2.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade show" style="width: 100%">
+            <img src="img/index/3.jpg" style="width:100%">
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------- LIST sẢN PHẨM ------------>
+    <div class="container space ">
+        <div class="row main-list" >
+            <div class="col-sm" >
+                <div class="items-img banner">
+                    <img src="img/index/1.jfif" >
+                </div>
+                <p class="name">Bomber nhung vân AK-0991</p>
+                <p class="price">665.000đ</p>
+            </div>
+            <div class="col-sm" >
+                <div class="items-img banner">
+                    <img src="img/index/1.jfif" >
+                </div>
+                <p class="name">Bomber nhung vân AK-0991</p>
+                <p class="price">665.000đ</p>
+            </div>
+            <div class="col-sm" >
+                <div class="items-img banner">
+                    <img src="img/index/1.jfif" >
+                </div>
+                <p class="name">Bomber nhung vân AK-0991</p>
+                <p class="price">665.000đ</p>
+            </div>
+            <div class="col-sm" >
+                <div class="items-img banner">
+                    <img src="img/index/1.jfif" >
+                </div>
+                <p class="name">Bomber nhung vân AK-0991</p>
+                <p class="price">665.000đ</p>
+            </div>
+        </div>
+        <div class="row main-list" >
+            <div class="col-sm" >
+                <div class="items-img banner">
+                    <img src="img/index/1.jfif" >
+                </div>
+                <p class="name">Bomber nhung vân AK-0991</p>
+                <p class="price">665.000đ</p>
+            </div>
+            <div class="col-sm" >
+                <div class="items-img banner">
+                    <img src="img/index/1.jfif" >
+                </div>
+                <p class="name">Bomber nhung vân AK-0991</p>
+                <p class="price">665.000đ</p>
+            </div>
+            <div class="col-sm" >
+                <div class="items-img banner">
+                    <img src="img/index/1.jfif" >
+                </div>
+                <p class="name">Bomber nhung vân AK-0991</p>
+                <p class="price">665.000đ</p>
+            </div>
+            <div class="col-sm" >
+                <div class="items-img banner">
+                    <img src="img/index/1.jfif" >
+                </div>
+                <p class="name">Bomber nhung vân AK-0991</p>
+                <p class="price">665.000đ</p>
+            </div>
+        </div>
+    </div>
+
+    <!-------------------------------------------------------------------------------------------------------------- FOOTER -->
+    <div id="footer" class="footer">
+        <div class="container" style="padding: 0px 100px;">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div id="contact">
+                        <h3 class="tittle">THÔNG TIN LIÊN HỆ</h3>
+                        <p class="address row">Cửa hàng của chúng tôi</p>
+                        <a class="address row" style="color:white">
+                            <span style="margin: 0px 5px;">
+                                <i class='fas fa-map-marker-alt'></i> 
+                            </span> 120 Xã đàn, Đống Đa, Hà Nội.
+                        </a>
+                        <a class="address row" style="color:white">
+                            <span style="margin: 0px 5px;">
+                                <i class='fas fa-map-marker-alt'></i> 
+                            </span>229 Thái Hà, Đống Đa, Hà Nội.
+                        </a>
+                        <a class="address row" style="color:white">
+                            <span style="margin: 0px 5px;">
+                                <i class='fas fa-map-marker-alt'></i> 
+                            </span>1001 Đường Láng Đống Đa, Hà Nội.
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div>
+                        <h3 class="tittle" >VỀ CHÚNG TÔI</h3>
+                        <a class="link">Fanpage cộng đồng SHOPLOVE</a> 
+                        <a class="link">Bài báo về SHOPLOVE</a> 
+                        <a class="link">Chính sách bảo mật</a> 
+                        <a class="link">Tuyển dụng</a> 
+                        <a class="link">Chính sách đổi trả</a> 
+                        <a class="link">Chính sách khách hàng thân thiết</a> 
+                        <a class="link">Hướng dẫn mua hàng</a> 
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div>
+                        <h3 class="tittle">ĐĂNG KÝ NHẬN THÔNG BÁO</h3>
+                        <p class="text">Đăng ký nhận thông tin khuyến mãi và cập nhật sản phẩm mới nhất từ LOVESHOP</p>
+                        <form class="form-subcribe">
+                            <div class="row" style="margin: 0px 0px">
+                                <input type="text" id="email_newsletter" class="input-subcribe" placeholder="Nhập địa chỉ email tại đây">
+                                <button class="btn btn-danger" style="height: 42px; vertical-align: auto;">Gửi</i></button>
+                            </div>
+                             <p class="text">EMAIL liên hệ: info@loveshop.com</p>
+                        </form>
+                        <p class="text">Công ty cổ phần thời trang LOVESHOP</p>
+                        <p class="text">Tổ 20, đường Huỳnh Thúc Kháng, p Nhân Chính, Q Thanh Xuân, TP Hà Nội</p>
+                        <p class="text">MST: 0123654312</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
 </body>
-
-
-
 </html>
