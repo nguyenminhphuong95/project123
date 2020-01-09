@@ -209,42 +209,27 @@ $(document).ready(function() {
 
 
 // ------------------------------------------------------------------------------------MERGE DATA FROM EXCEL -------------------------
+
 function merge() {
-  try {
-    JSON.parse(document.getElementById('excelData').value);
-  } catch (e) {
-    if (e instanceof SyntaxError) {
-        printError(e, true);
-        alert("Bạn nhập sai dữ liệu từ Excel rồi. Hãy thử lại nhé");
-    } else {
-        printError(e, false);
-        alert("Bạn nhập sai dữ liệu từ Excel rồi. Hãy thử lại nhé");
-    }
+  let nNo = document.getElementById('nNo').value;
+  nNo = JSON.parse(nNo);
+  console.log(nNo);
+  console.log(listProduct);
+  
+  
+  for (let i = 0; i < listProduct.length; i++) {
+        for (let j = 0; j < nNo.length; j++) {
+            if (listProduct[i].no == nNo[j].no) {
+                listProduct.splice(i,1);
+                i--;
+                break;
+            }
+            
+        }  
   }
-  let excelData = JSON.parse(document.getElementById('excelData').value);
-  if(Array.isArray(excelData)){
-    for (let i = 0; i < listProduct.length; i++) {
-          for (let j = 0; j < excelData.length; j++) {
-              if (listProduct[i].no == excelData[j].no) {
-                  listProduct.splice(i,1);
-                  i--;
-                  break;
-              }
-          }  
-    }
-    listProduct=[...listProduct,...excelData];
-    console.log(listProduct);
-    
-    displayTable(listProduct);
-    saveList();
-    alert("Đã nhập xong dữ liệu");
-  } else {
-    alert("Bạn nhập format từ excel rồi. Hãy vào file excel nhấn button và patse và ô thêm nhiều sản phẩm");
-  }
+  listProduct=[...listProduct,...nNo];
+  console.log(listProduct);
+  
+  displayTable(listProduct);
+  saveList();
 }
-
-
-function printError(error, explicit) {
-  alert(`[${explicit ? 'EXPLICIT' : 'INEXPLICIT'}] ${error.name}: ${error.message}`);
-}
-

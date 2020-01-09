@@ -31,6 +31,9 @@
             <div class="col-sm-8">
                 <button id="addNew" onclick="document.getElementById('id02').style.display='block'" 
                 class="btn btn-primary" style="font-size: 15px; font-weight: bold;">Thêm mới</button>
+                
+                <button id="addExcelData" onclick="document.getElementById('id03').style.display='block'" 
+                class="btn btn-primary" style="font-size: 15px; font-weight: bold;">Thêm từ Excel</button>
 
             </div>
             
@@ -80,7 +83,7 @@
         <!-- The modal -->
     <div id="id01" class="modal">
         
-        <!-- Modal content -->
+    
         <form class="modal-content animate" onsubmit="change()">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
             <div class="img"></div>
@@ -114,7 +117,7 @@
 
                 <div class=".form-group">   
                     <label for="changeDiscount">Giảm giá</label>
-                    <input type="text" id="changeDiscount" placeholder="Nhập thông tin giảm giá">       
+                    <input type="number" id="changeDiscount" placeholder="Nhập thông tin giảm giá">       
                 </div>
                
                 <div class=".form-group">   
@@ -138,7 +141,7 @@
         <!-- The modal -->
     <div id="id02" class="modal">
         
-        <!-- Modal content -->
+      
         <form class="modal-content animate" onsubmit="addNew()">
             <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
             <div class="img"></div>
@@ -171,7 +174,7 @@
 
                 <div class=".form-group">   
                     <label for="newDiscount">Giảm giá</label>
-                    <input type="text" id="newDiscount" placeholder="Nhập thông tin giảm giá">       
+                    <input type="number" id="newDiscount" placeholder="Nhập % giảm giá">       
                 </div>
                
                 <div class=".form-group">   
@@ -189,7 +192,23 @@
             </div>
         </form>    
     </div>
-
+    <!---------------------------------------------------------------------------------Form for Add Form Excel Data------------------------------------------------->
+        <!-- The modal -->
+    <div id="id03" class="modal">
+        <form class="modal-content animate" onsubmit="merge()">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <div class="img"></div>
+            <div class="container">
+                <h1 style="text-align: center;">Thêm sản phẩm mới</h1>
+                <div class=".form-group">     
+                    <label for="excelData">Mã từ Excel</label>
+                    <textarea type="text" id="excelData" placeholder="Dán dữ liệu (Convert and copy) trong file Excel vào đây"  row="4" required></textarea>
+                </div>
+                <button class="btn btn-success button1" type="submit" >Thêm mới</button>
+                <button class="btn btn-danger button1" type="button" onclick="document.getElementById('id03').style.display='none'">Cancel</button>
+            </div>
+        </form> 
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>

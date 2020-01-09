@@ -100,91 +100,10 @@
 
             <div class="col-sm-6 division" style="border: none;"> <!--------------------------------------------------------------------Giỏ hàng-->
                 <h4>GIỎ CỦA BẠN</h4>
-                <form id="shoppingCart" class="form-group">
-                    <div class="cart-items row">                                                        <!--HEADER-->
-                        <div class="col-sm-7 cart-row" style="text-align: center;">Sản phẩm</div>
-                        <div class="col-sm-2 cart-row" style="text-align: center;">Số lượng</div>
-                        <div class="col-sm-3 cart-row" style="text-align: center;">Thành tiền</div>
+                <form id="shoppingCart" class="form-group" onsubmit="alert('Đặt hàng thành công')" >
+                    <div class="container" id="cart-body">    
                     </div>
-
-
-
-
-                    <div class="cart-items row">
-                        <div class="col-sm-2 cart-row"> <!--IMAGE-->
-                            <img src="img/product/CLO01.jpg" alt="item" width="100%">
-                        </div> 
-                        <div class="col-sm-5 cart-row">                                                                <!-- Product info -->
-                            <p id="cart-item-no">Mã sản phẩm</p>
-                            <p id="cart-item-name">Name</p>
-                            <p>Xóa</p>
-                        </div>
-
-
-                        <div class="col-sm-2 cart-row" id="cart-item-quantity">                                      <!--Số lượng mua-->
-                            <input style="width: 50px" type="number" value ="1" min="1">
-                        </div>
-
-                        <div class="col-sm-3 cart-row" id="cart-item-price" style="text-align: right;">              <!--Thành tiền-->
-                            Thành tiền
-                        </div>
-                    </div>
-
-
-
-
-
-
-                    <div class="row">
-                        <div class="col-sm-10 cart-row"> Tổng tiền (VAT) </div>
-                        <div class="col-sm-2 cart-row">.......vnđ</div> <!-- TÍNH TIỀN CỘT NÀY-->
-                        
-                    </div>
-                   
-                    
-                    
-                    
-                    
-                    
-                    <!-- <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Sản phẩm</th>
-                                <th>Đơn giá</th>
-                                <th>Số lượng</th>
-                                <th>Tổng cộng</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="listPurchased">
-                            <tr>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>
-                                    <input style="width: 70px" type="number" value ="1" min="1">
-                                </td>
-                                <td>1.000.000 vnđ</td>
-                                <td><button type="button" class="btn btn-danger btn-sm">Xóa</button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>
-                                    <input style="width: 70px" type="number" value ="1" min="1">
-                                </td>
-                                <td>1.000.000 vnđ</td>
-                                <td><button type="button" class="btn btn-danger btn-sm">Xóa</button></td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                         
-                            <tr>
-                                <td colspan="3">Thành tiền</td>
-                                <td>2.200.000 vnđ</td>
-                            </tr>
-                        </tfoot>
-                    </table> -->
-                    <button type="button" class="btn btn-success btn-lg col-sm-12" >Đặt hàng và thanh toán</button>
+                    <button type="submit" class="btn btn-success btn-lg col-sm-12" >Đặt hàng và thanh toán</button>
                 </div>
 
             </div>
