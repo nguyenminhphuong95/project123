@@ -24,7 +24,7 @@ function displayTable(a) {
         <td>${format_curency(e.price)} đ</td>
         <td>${e.quantity}</td>
         <td>${e.discount}%</td>
-        <td><img src="img/product/${e.no}.jpg" alt="${e.name}" width="100px"></td>
+        <td><img src="img/product/${e.no} (1).jpg" alt="${e.name} (1)" width="100px"></td>
         <td>${e.description}</td>
         <td>
             <button class="btn btn-success" onclick="document.getElementById('id01').style.display='block'; getChangeIndex(${i})">Sửa</button>
