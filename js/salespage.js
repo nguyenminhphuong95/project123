@@ -1,11 +1,17 @@
 let listProduct
-let itemNo = "JK01" ;
+
 let itemLoad = {};
 
 
 
 window.onload = loadListProduct();
-loadItem(itemNo);
+function run() {
+	let itemNo = document.getElementById("itemNo").value ;
+	loadItem(itemNo);
+	displayImg ();
+	displayItem();
+}
+
 function loadListProduct () {
 	listProduct = JSON.parse(localStorage.getItem("listProduct"));
 }
@@ -67,20 +73,22 @@ function displayItem (item){
 	// document.getElementById("name").innerHTML = itemLoad.name;
 	// document.getElementById("name").innerHTML = itemLoad.name;
 }
-displayItem();
+
 
 
 function displayImg () {
 	let displayImg = `
 		<div class="item active">
-			<img src="img/${itemLoad.no}.1.jpg" style="width:700px">
-		</div>";
-		`
+			<img src="img/product/${itemLoad.no}.1.jpg" style="width:700px">
+		</div>"
+		`;
 	for (let i = 1; i < itemLoad.images; i++) {
 		displayImg +=`
 			<div class="item">
-				<img src="img/${itemLoad.no}.${i+1}.jpg" style="width:700px">
+				<img src="img/product/${itemLoad.no}.${i+1}.jpg" style="width:700px">
 			</div>
 		`
 	}
+	document.getElementById("img_slide").innerHTML = displayImg;
+	
 }
