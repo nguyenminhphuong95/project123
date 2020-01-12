@@ -1,19 +1,20 @@
-let listProduct
+let listProduct;
 
 let itemLoad = {};
 
 
 
 window.onload = loadListProduct();
-function run() {
+function run() { // ----------------------------------------------------------Sửa lại khi nhận được thông itn đầu vào
 	let itemNo = document.getElementById("itemNo").value ;
 	loadItem(itemNo);
-	displayImg ();
 	displayItem();
 }
 
 function loadListProduct () {
 	listProduct = JSON.parse(localStorage.getItem("listProduct"));
+	console.log(listProduct);
+	
 }
 
 // -------------------------------------------------------------------------------------- Chuyển động slide ảnh ----------->
@@ -52,8 +53,6 @@ function loadItem (itemNo) {
 		}
 	}
 }
-console.log(itemLoad);
-
 
 //  ------------------------------------------------------------------------------------------FORMAT DẠNG TIỀN TỆ-----------------------------------------------
 function format_curency(x) {
@@ -70,17 +69,10 @@ function displayItem (item){
 	document.getElementById("name").innerHTML = itemLoad.name;
 	document.getElementById("price").innerHTML = format_curency(itemLoad.price);
 	document.getElementById("description").innerHTML = itemLoad.description;
-	// document.getElementById("name").innerHTML = itemLoad.name;
-	// document.getElementById("name").innerHTML = itemLoad.name;
-}
-
-
-
-function displayImg () {
 	let displayImg = `
 		<div class="item active">
 			<img src="img/product/${itemLoad.no}.1.jpg" style="width:700px">
-		</div>"
+		</div>
 		`;
 	for (let i = 1; i < itemLoad.images; i++) {
 		displayImg +=`
@@ -90,5 +82,26 @@ function displayImg () {
 		`
 	}
 	document.getElementById("img_slide").innerHTML = displayImg;
+}
+
+
+// --------------------------------------------------------------------------------THÊM SẢN PHẨM VÀO GIỎ HÀNG
+cartItem = getList("cartItem");
+function getList(a) {
+    return JSON.parse(localStorage[`${a}`]);
+}
+function savecart() {
+    let save = JSON.stringify(cartItem,null,2);
+    localStorage.setItem("cartItem",save);
+  }
+
+function addToCart() {
+	let item = {
+		"no": itemLoad.no,
+		"quantity": document.getElementById("quantity").value
+	};
+	cartItem.push(item);
+	savecart();
+	console.log(item);
 	
 }

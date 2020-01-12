@@ -28,7 +28,7 @@ function displayCartItems(){
         cartRows +=`
         <div class="cart-items row">
             <div class="col-sm-3 cart-row"> 
-                <img src="img/product/${e.no}.jpg" alt="item" width="100%">
+                <img src="img/product/${e.no}.1.jpg" alt="item" width="100%">
             </div> 
             <div class="col-sm-4 cart-row">
                 <h3>${name}</h3>
@@ -118,17 +118,10 @@ function remove_cart_item(i) {
     displayCartItems();
     savecart();
 }
-function add (){
-    let item = {
-        "no": 'CLO03',
-        "quantity": 2
-    }
-    cartItem.push(item);
-    savecart()
-}
+
 function convertTextToNumber (str){
-    str=str.toString();
     str = str.replace(/,/g,"");  
-    str = parseInt(str.subString());
+    str = str.replace(/đ/g,"");  
+    
     return str;  
 }
