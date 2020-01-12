@@ -177,7 +177,11 @@ thead tr:first-child th {
     background-color: rgb(253, 244, 194);
     font-weight: bolder;
 }
-
+#searchCategory {
+    height: 38px;
+    margin-top: 8px;
+    width: fit-content;
+}
 
 
 

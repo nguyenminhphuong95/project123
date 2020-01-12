@@ -153,11 +153,16 @@ function format_curency(x) {
 
 // ------------------------------------------------------------------------------------------TÌM KIẾM VÀ HIỂN THỊ  LÊN BẢNG ----------------------->
 function search() {
+  let targetSearch = document.getElementById("searchCategory").innerHTML;
+  if(targetSearch == "Mã sản phẩm") { targetSearch = "no";}
+  else if (targetSearch == "Tên sản phẩm") { targetSearch = "name";}
+  else if (targetSearch == "Loại") { targetSearch = "category";}
+  else { return}
   let search = document.getElementById("search").value;
   let x = [];
   for (let i = 0; i < listProduct.length; i++) {
     const e = listProduct[i];
-    if( e["name"].includes(search)) {
+    if( e[`${targetSearch}`].includes(search)) {
       x.push(e);
     }
   }
