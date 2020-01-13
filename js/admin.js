@@ -153,16 +153,19 @@ function format_curency(x) {
 
 // ------------------------------------------------------------------------------------------TÌM KIẾM VÀ HIỂN THỊ  LÊN BẢNG ----------------------->
 function search() {
+  // (chọn mục search)
   let targetSearch = document.getElementById("searchCategory").innerHTML;
   if(targetSearch == "Mã sản phẩm") { targetSearch = "no";}
   else if (targetSearch == "Tên sản phẩm") { targetSearch = "name";}
   else if (targetSearch == "Loại") { targetSearch = "category";}
   else { return}
+  
+  // (nội dung search)
   let search = document.getElementById("search").value;
   let x = [];
   for (let i = 0; i < listProduct.length; i++) {
     const e = listProduct[i];
-    if( e[`${targetSearch}`].includes(search)) {
+    if( e[`${targetSearch}`].toLowerCase().includes(search.toLowerCase())) {
       x.push(e);
     }
   }

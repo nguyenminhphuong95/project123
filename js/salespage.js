@@ -66,8 +66,8 @@ function format_curency(x) {
 
 // -----------------------------------------------------------------------------------------Thay thế thông tin hiển thị
 function displayItem (item){
-	document.getElementById("name").innerHTML = itemLoad.name;
-	document.getElementById("price").innerHTML = format_curency(itemLoad.price);
+	document.getElementById("name").innerHTML = "<b>"+itemLoad.name+"</b>";
+	document.getElementById("price").innerHTML = "<b>"+format_curency(itemLoad.price)+"</b>";
 	document.getElementById("description").innerHTML = itemLoad.description;
 	let displayImg = `
 		<div class="item active">
@@ -82,6 +82,28 @@ function displayItem (item){
 		`
 	}
 	document.getElementById("img_slide").innerHTML = displayImg;
+	
+	// Hiển thị ô kick thước
+	let size="";
+	if (itemLoad["description"].toLowerCase().includes("size s" || "size m" || "size l") ) {
+		size = "<B>Kích thước</B><br>"
+	}
+	if (itemLoad.description.toLowerCase().includes("size s")) {
+		size += `
+		<button type="button" class="btn btn-outline-light text-dark">S</button>
+		`;
+	}
+	if (itemLoad.description.toLowerCase().includes("size m")) {
+		size += `
+		<button type="button" class="btn btn-outline-light text-dark">M</button>
+		`;
+	}
+	if (itemLoad.description.toLowerCase().includes("size l")) {
+		size += `
+		<button type="button" class="btn btn-outline-light text-dark">L</button>
+		`;
+	}
+	document.getElementById("size").innerHTML = size+"<br><br>";
 }
 
 
