@@ -12,11 +12,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <link rel="stylesheet" href="css/salespage.css">
-
+<title>SALES PAGE</title>
 
 </head>
 
-<body>
+<body id="body">
     <div class="header-nav row" style="padding: 0.5rem 1rem; ">                                            <!-- Brand/logo -->
 
         <div class="col-sm-2">
@@ -29,31 +29,31 @@
             <ul class="navbar-nav">
     
                 <li class="nav-item">
-                    <a class="nav-link" href="#">TRANG CHỦ</a>
+                    <a class="nav-link" href="index.html" onclick="categoryOpen('')">TRANG CHỦ</a>
                 </li>
     
                 <li class="nav-item dropdown">                                                      <!-- Dropdown -->
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">ÁO<span class="caret"></span></a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Áo khoác</a>
-                        <a class="dropdown-item" href="#">Áo sơ mi</a>
-                        <a class="dropdown-item" href="#">Áo phông</a>
+                        <a class="dropdown-item" href="index.html" onclick="categoryOpen('Áo khoác')">Áo khoác</a>
+                        <a class="dropdown-item" href="index.html" onclick="categoryOpen('Áo sơ mi')">Áo sơ mi</a>
+                        <a class="dropdown-item" href="index.html" onclick="categoryOpen('Áo phông')">Áo phông</a>
                     </div>
                 </li>
     
                 <li class="nav-item dropdown">                                                     <!-- Dropdown -->
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">QUẦN<span class="caret"></span></a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Quần dài</a>
-                        <a class="dropdown-item" href="#">Quần soóc</a>
+                        <a class="dropdown-item" href="index.html" onclick="categoryOpen('Quần dài')">Quần dài</a>
+                        <a class="dropdown-item" href="index.html" onclick="categoryOpen('Quần soóc')">Quần soóc</a>
                     </div>
                 </li>
     
                 <li class="nav-item">
-                    <a class="nav-link" href="#">PHỤ KIỆN</a>
+                    <a class="nav-link" href="index.html" onclick="categoryOpen('PHỤ KIỆN')">PHỤ KIỆN</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">LIÊN HỆ</a>
+                    <a class="nav-link" href="#" >LIÊN HỆ</a>
                 </li>
     
             </ul>                    
@@ -84,22 +84,7 @@
                     
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" id="img_slide">
-                          <!-- <div class="item active">
-                            <img src="img/JK03.1.jpg" style="width:700px">
-                          </div>
-                    
-                          <div class="item">
-                            <img src="img/JK03.2.jpg" style="width:700px">
-                          </div>
-                        
-                          <div class="item">
-                            <img src="img/JK03.3.jpg" style="width:700px">
-                          </div>
-
-                          <div class="item">
-                            <img src="img/JK03.4.jpg" style="width:700px">
-                          </div> -->
-
+                  
                         </div>
                     
                         <!-- Left and right controls -->
@@ -155,7 +140,9 @@
                         </div>
                     </div>
                     <br>
-                    <button type="button" class="btn btn-info active btn-lg btn-block" onclick="addToCart()">THÊM VÀO GIỎ HÀNG</button>
+                    <a type="button" class="btn btn-info active btn-lg btn-block" onclick="addToCart()" href="checkout.html" target="_blank"> 
+                        THÊM VÀO GIỎ HÀNG
+                    </a>
                     <br>
                     
                     <h7 class="information">
@@ -172,7 +159,6 @@
 
             </div>
     </div> 
-<input type="text" id="itemNo" value="JK01" onchange="run()">
 <script src="js/salespage.js"></script>
 </body>
 

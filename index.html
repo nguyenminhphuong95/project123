@@ -14,7 +14,7 @@
     <div class="header-nav row">                                            <!-- Brand/logo -->
         <div class="navbar navbar-expand-sm bg-light navbar-light row" style="width:100%;">
             <div class="col-sm-2">
-                <a class="navbar-brand" href="#" style="margin-left: 20px;">
+                <a class="navbar-brand" href="#" style="margin-left: 20px;" onclick="winScroll(0)">
                     <img src="img/logo/ezgif-1-b2a76634539d.png" alt="logo" style="width: 100px;">
                 </a>
             </div>
@@ -23,31 +23,31 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">TRANG CHỦ</a>
+                        <button class="nav-link btn btn-outline-light" href="#" onclick="searchList('')">TRANG CHỦ</button>
                     </li>
 
                     <li class="nav-item dropdown">                                                      <!-- Dropdown -->
-                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">ÁO</a>
+                        <button class="nav-link btn btn-outline-light dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">ÁO</button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Áo khoác</a>
-                            <a class="dropdown-item" href="#">Áo sơ mi</a>
-                            <a class="dropdown-item" href="#">Áo phông</a>
+                            <a class="dropdown-item" onclick="searchList('Áo khoác')">Áo khoác</a>
+                            <a class="dropdown-item" onclick="searchList('Áo sơ mi')">Áo sơ mi</a>
+                            <a class="dropdown-item" onclick="searchList('Áo phông')">Áo phông</a>
                         </div>
                     </li>
 
                     <li class="nav-item dropdown">                                                     <!-- Dropdown -->
-                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">QUẦN</a>
+                        <button class="nav-link btn btn-outline-light dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">QUẦN</button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Quần dài</a>
-                            <a class="dropdown-item" href="#">Quần soóc</a>
+                            <a class="dropdown-item" onclick="searchList('Quần dài')">Quần dài</a>
+                            <a class="dropdown-item" onclick="searchList('Quần soóc')">Quần soóc</a>
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">PHỤ KIỆN</a>
+                        <button class="nav-link btn btn-outline-light" onclick="searchList('PHỤ KIỆN')">PHỤ KIỆN</button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">LIÊN HỆ</a>
+                        <button class="nav-link btn btn-outline-light" onclick="winScroll(10000)">LIÊN HỆ</button>
                     </li>
 
                 </ul>                    
@@ -81,67 +81,7 @@
         </div>
     </div>
     <!---------------------------------------------------------------------------------------------------------- LIST sẢN PHẨM ------------>
-    <div class="container space ">
-        <div class="row main-list" >
-            <div class="col-sm" >
-                <div class="items-img banner">
-                    <img src="img/index/1.jfif" >
-                </div>
-                <p class="name">Bomber nhung vân AK-0991</p>
-                <p class="price">665.000đ</p>
-            </div>
-            <div class="col-sm" >
-                <div class="items-img banner">
-                    <img src="img/index/1.jfif" >
-                </div>
-                <p class="name">Bomber nhung vân AK-0991</p>
-                <p class="price">665.000đ</p>
-            </div>
-            <div class="col-sm" >
-                <div class="items-img banner">
-                    <img src="img/index/1.jfif" >
-                </div>
-                <p class="name">Bomber nhung vân AK-0991</p>
-                <p class="price">665.000đ</p>
-            </div>
-            <div class="col-sm" >
-                <div class="items-img banner">
-                    <img src="img/index/1.jfif" >
-                </div>
-                <p class="name">Bomber nhung vân AK-0991</p>
-                <p class="price">665.000đ</p>
-            </div>
-        </div>
-        <div class="row main-list" >
-            <div class="col-sm" >
-                <div class="items-img banner">
-                    <img src="img/index/1.jfif" >
-                </div>
-                <p class="name">Bomber nhung vân AK-0991</p>
-                <p class="price">665.000đ</p>
-            </div>
-            <div class="col-sm" >
-                <div class="items-img banner">
-                    <img src="img/index/1.jfif" >
-                </div>
-                <p class="name">Bomber nhung vân AK-0991</p>
-                <p class="price">665.000đ</p>
-            </div>
-            <div class="col-sm" >
-                <div class="items-img banner">
-                    <img src="img/index/1.jfif" >
-                </div>
-                <p class="name">Bomber nhung vân AK-0991</p>
-                <p class="price">665.000đ</p>
-            </div>
-            <div class="col-sm" >
-                <div class="items-img banner">
-                    <img src="img/index/1.jfif" >
-                </div>
-                <p class="name">Bomber nhung vân AK-0991</p>
-                <p class="price">665.000đ</p>
-            </div>
-        </div>
+    <div class="container space " id="itemsContainer">
     </div>
 
     <!-------------------------------------------------------------------------------------------------------------- FOOTER -->
@@ -206,5 +146,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="js/index.js"></script>
+
 </body>
 </html>

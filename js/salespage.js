@@ -5,8 +5,12 @@ let itemLoad = {};
 
 
 window.onload = loadListProduct();
+window.onload = run();
+
 function run() { // ----------------------------------------------------------Sửa lại khi nhận được thông itn đầu vào
-	let itemNo = document.getElementById("itemNo").value ;
+	let itemNo = JSON.parse(localStorage.getItem("itemOpen"));
+	console.log(itemNo);
+	
 	loadItem(itemNo);
 	displayItem();
 }
@@ -112,9 +116,9 @@ cartItem = getList("cartItem");
 function getList(a) {
     return JSON.parse(localStorage[`${a}`]);
 }
-function savecart() {
-    let save = JSON.stringify(cartItem,null,2);
-    localStorage.setItem("cartItem",save);
+function save(a,b) {
+    let save = JSON.stringify(b,null,2);
+    localStorage.setItem(a,save); 
   }
 
 function addToCart() {
@@ -122,8 +126,30 @@ function addToCart() {
 		"no": itemLoad.no,
 		"quantity": document.getElementById("quantity").value
 	};
+	cartItem = getList("cartItem");
 	cartItem.push(item);
-	savecart();
+	compressCart();
+	save('cartItem',cartItem);
 	console.log(item);
 	
+}
+
+function categoryOpen(a){
+	localStorage.setItem("categoryOpen",JSON.stringify(a));
+}
+
+function compressCart() {
+    for (let i = 0; i < cartItem.length; i++) {
+      const x = cartItem[i];
+      
+      for (let j = i+1; j < cartItem.length; j++) {
+        const y = cartItem[j];
+        
+        if (x.no == y.no) {
+          x.quantity = Number(x.quantity) + Number(y.quantity);
+          cartItem.splice(j,1);
+          j--;
+        }
+      }
+    }
 }

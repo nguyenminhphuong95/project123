@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .dropdown-menu a:hover{
   color: #ff8109;
   background-color: #DDDDDD;
@@ -25,7 +29,7 @@
 .nav-item{
   margin-left: 15px;
 }
-.nav-item:hover  a.nav-link{
+.nav-item:hover  button.nav-link{
   color: #ff8109 !important;
 }
 * {box-sizing: border-box;}
@@ -168,3 +172,4 @@ transition: transform .6s ease;
 .items-img {
   overflow: hidden;
 }
+

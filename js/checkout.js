@@ -125,3 +125,5 @@ function convertTextToNumber (str){
     
     return str;  
 }
+
+//----------------------------------------------------------------------------------------- Gộp giỏ hàng vào với nhau
