@@ -1,11 +1,15 @@
 
 /// -------------------------------------------------------------------------ĐỊNH NGHĨA BIẾN LƯU TRỮ DANH SÁCH SẢN PHẨM-----------------------------------------------
 let listProduct= [];
+let cusOrders=[];
 var indexChange;
 
 //load wweb
-window.onload = getList();
+cusOrders = getList("cusOrders");
+listProduct= getList("listProduct");
 window.onload = displayTable(listProduct);
+window.onload = displaylistOrder();
+
 
 //  -------------------------------------------------------------------------HIỂN THỊ DANH SÁCH LÊN WEB---------------------------------------------------------
 
@@ -50,7 +54,7 @@ function addNew() {
   let price = document.getElementById('newPrice').value;
   let quantity = document.getElementById('newQuantity').value;
   let discount = document.getElementById('newDiscount').value;
-  let images = document.getElementById('newImages').value.split(','); /////////////////////////////////////////////////////////////////// <--
+  let images = document.getElementById('newImages').value.split(',');
   let description = document.getElementById('newDescription').value;
   
   listProduct.push({
@@ -64,7 +68,7 @@ function addNew() {
     "description": description,
   });
   displayTable(listProduct);
-  saveList();
+  save("listProduct",listProduct);
 }
 
 //  --------------------------------------------------------------------------------SỬA SẢN PHẨM---------------------------------------------------------
@@ -102,7 +106,7 @@ function change() {
     
 
   displayTable(listProduct);
-  saveList();
+  save("listProduct",listProduct);
 }
   
 
@@ -112,24 +116,32 @@ function remove(i) {
     listProduct.splice(i,1);
 
     displayTable(listProduct);
-    saveList();
+    save("listProduct",listProduct);
   }
 }
 
 //------------------------------------------------------------------------------------------ LƯU VÀ LẤY DỮ LIỆU KHI LOAD WEB -----------------------------------------------
-function saveList() {
-  let list = JSON.stringify(listProduct,null,2);
-  localStorage.setItem("listProduct",list);
+function save(a,b) {
+  let save = JSON.stringify(b,null,2);
+  localStorage.setItem(a,save); 
 }
 
-function getList() {
-  listProduct = JSON.parse(localStorage.listProduct);
+function getList(a) {
+	if (localStorage[`${a}`] !== undefined) {
+        
+		return JSON.parse(localStorage[`${a}`]);
+	} else{
+		return [];
+	}
 }
 
 
 //  -----------------------------------------------------------------------------------------TẮT MODAL KHI KICK RA NGOÀI------------------------------------------------
 let modal1 = document.getElementById('id01');
 let modal2 = document.getElementById('id02');
+let modal3 = document.getElementById('id03');
+let modal4 = document.getElementById('id04');
+let modal5 = document.getElementById('id05');
 
 window.onclick = function (event) {
   if(event.target == modal1) {
@@ -137,6 +149,15 @@ window.onclick = function (event) {
   }
   if(event.target == modal2) {
     modal2.style.display = 'none';
+  }
+  if(event.target == modal3) {
+    modal3.style.display = 'none';
+  }
+  if(event.target == modal4) {
+    modal4.style.display = 'none';
+  }
+  if(event.target == modal5) {
+    modal5.style.display = 'none';
   }
 }
 
@@ -244,7 +265,7 @@ function merge() {
     console.log(listProduct);
     
     displayTable(listProduct);
-    saveList();
+    save("listProduct",listProduct);
     alert("Đã nhập xong dữ liệu");
   } else {
     alert("Bạn nhập format từ excel rồi. Hãy vào file excel nhấn button và patse và ô thêm nhiều sản phẩm");
@@ -256,3 +277,168 @@ function printError(error, explicit) {
   alert(`[${explicit ? 'EXPLICIT' : 'INEXPLICIT'}] ${error.name}: ${error.message}`);
 }
 
+
+
+//-------------------------------------------------------------------------------------------------- CHANGE TAB
+function openTab(evt, tabName) {
+  // Declare all variables
+  let i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+} 
+
+
+// ------------------------------------------------------------------------------------------------- Các mục về quản lý đơn hàng
+
+function displaylistOrder() {
+  let listOrder= "";
+  let undefinedOrder = 0;
+  for (let i = 0; i < cusOrders.length; i++) {
+    const e = cusOrders[i];
+    if (e.status == "chưa hoàn thành") {
+      undefinedOrder++;
+    }
+    let numberProduct = 0;
+    for (let j = 0; j < e["cusCart"].length; j++) {
+      const element = e["cusCart"][j];
+      numberProduct += element.quantity;
+    }
+    listOrder +=
+    `
+    <tr>
+      <td>${i+1}</td>
+      <td>${e.cusNo}</td>
+      <td><button onclick="displayCusInfo(${i}); document.getElementById('id04').style.display='block'; " 
+      class="btn btn-outline-info" style="font-size: 15px; font-weight: bold; min-width: 150px;">${e.cusName}</button></td>
+      
+      <td><button onclick="displayOrderInfo(${i}); document.getElementById('id05').style.display='block'; " 
+      class="btn btn-outline-info" style="font-size: 15px; font-weight: bold;">${numberProduct} sản phẩm</button></td>
+      <td>${e.cusComment}</td>
+      <td>${e.deliMethod}</td>
+      <td>${e.payMethod}</td>
+      <td>${e.status}</td>
+      <td>
+        <button onclick="deleteCusOrder(${i})" class="btn btn-outline-danger" style="font-size: 10px; font-weight: bold; min-width: 60px;">Delete</button>
+        <button onclick="finishCusOrder(${i})" class="btn btn-outline-success" style="font-size: 10px; font-weight: bold; min-width: 60px;">Done</button>
+        
+      </td>
+    </tr>
+    `
+  }
+  document.getElementById("listOrder").innerHTML = listOrder;
+  document.getElementById("totalUnfinishedOrder").innerHTML = undefinedOrder + " đơn hàng";
+}
+
+function displayCusInfo (i){
+  let x ="";
+  x = `
+    <thead>
+      <tr>
+        <th style="width: 30%">Khách hàng</td>
+        <th style="width: 70%">${cusOrders[i].cusName}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Email</td>
+        <td>${cusOrders[i].cusEmail}</td>
+      </tr>
+      <tr>
+        <td>Số Điện Thoại</td>
+        <td>${cusOrders[i].cusPhone}</td>
+      </tr>
+      <tr>
+        <td>Địa chỉ giao hàng</td>
+        <td>${cusOrders[i].cusAddress}</td>
+      </tr>
+      <tr>
+        <td>Lưu ý</td>
+        <td>${cusOrders[i].cusComment}</td>
+      </tr>
+    </tbody>
+  `
+  document.getElementById("cusInfo").innerHTML=x;
+}
+
+
+
+// -------------------------------------------------------------------------------------------------------FUNCTION TỪ SALESPAGE SANG
+function displayOrderInfo(a){
+  let cartRows="";
+  let totalSum = 0;
+  for (let i = 0; i < cusOrders[a].cusCart.length; i++) {
+      const e = cusOrders[a].cusCart[i];
+      let name = searchCartItem(e.no,"name");
+      let price = searchCartItem(e.no,"price");
+      let discount = searchCartItem(e.no,"discount");
+      let sum = e.quantity * price * (1-(discount/100));
+      totalSum += sum; 
+      cartRows +=`
+      <div class="cart-items row">
+          <div class="col-sm-3 cart-row"> 
+              <img src="img/product/${e.no}.1.jpg" alt="item" width="100%">
+          </div> 
+          <div class="col-sm-5 cart-row" style="margin: auto">
+              <h4>${name}</h4>
+              <p style="margin: 0px;">- Mã sản phẩm: ${e.no}</p>
+              <p style="margin: 0px;">- Đơn giá: ${format_curency(price)}đ</p>
+              <p style="margin: 0px;">- Giảm giá: ${discount} %</p>
+          </div>
+          <div class="col-sm-2 cart-row" style="margin: auto">
+              ${e.quantity} sp
+          </div>
+  
+          <div class="col-sm-2 cart-row" style="text-align: right; margin: auto" id="sum${i}">${format_curency(sum)}đ</div>
+      </div>
+      `;
+  }
+  cartRows +=`
+      <div class="row">
+          <div class="col-sm-9 cart-row"> VAT </div>
+          <div class="col-sm-3 cart-row" style="text-align: right;" id="VAT">${format_curency(totalSum*0.1)}đ</div>
+          
+      </div>        
+      <div class="row">
+          <div class="col-sm-9 cart-row"  style="border-top: none;"> Tổng tiền (VAT) </div>
+          <div class="col-sm-3 cart-row" style="text-align: right; border-top: none;" id="totalSum">${format_curency(totalSum*1.1)}đ</div>
+          
+      </div>
+  `;
+  document.getElementById("orderInfo").innerHTML = cartRows;
+}
+
+//---------------------------------------------------------------------------- Tìm thông tin sản phẩm giỏ trong data ListProduct
+function searchCartItem(a,element) {
+  for (let i = 0; i < listProduct.length; i++) {
+      const e = listProduct[i];
+      if (a == e.no) {
+          return e[`${element}`];
+      }
+  }
+}
+
+function deleteCusOrder (a) {
+  cusOrders.splice(a,1);
+  save("cusOrders",cusOrders);
+  displaylistOrder();
+}
+
+function finishCusOrder(a) {
+  cusOrders[a].status = "Hoàn thành";
+  save("cusOrders",cusOrders);
+  displaylistOrder();
+}

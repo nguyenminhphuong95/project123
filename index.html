@@ -14,7 +14,7 @@
     <div class="header-nav row">                                            <!-- Brand/logo -->
         <div class="navbar navbar-expand-sm bg-light navbar-light row" style="width:100%;">
             <div class="col-sm-2">
-                <a class="navbar-brand" href="#" style="margin-left: 20px;" onclick="winScroll(0)">
+                <a class="navbar-brand" href="#" style="margin-left: 20px;" onclick="searchList(''); winScroll(0)">
                     <img src="img/logo/ezgif-1-b2a76634539d.png" alt="logo" style="width: 100px;">
                 </a>
             </div>
@@ -29,17 +29,17 @@
                     <li class="nav-item dropdown">                                                      <!-- Dropdown -->
                         <button class="nav-link btn btn-outline-light dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">ÁO</button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" onclick="searchList('Áo khoác')">Áo khoác</a>
-                            <a class="dropdown-item" onclick="searchList('Áo sơ mi')">Áo sơ mi</a>
-                            <a class="dropdown-item" onclick="searchList('Áo phông')">Áo phông</a>
+                            <a type="button" class="dropdown-item" onclick="searchList('Áo khoác')">Áo khoác</a>
+                            <a type="button" class="dropdown-item" onclick="searchList('Áo sơ mi')">Áo sơ mi</a>
+                            <a type="button" class="dropdown-item" onclick="searchList('Áo phông')">Áo phông</a>
                         </div>
                     </li>
 
                     <li class="nav-item dropdown">                                                     <!-- Dropdown -->
                         <button class="nav-link btn btn-outline-light dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">QUẦN</button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" onclick="searchList('Quần dài')">Quần dài</a>
-                            <a class="dropdown-item" onclick="searchList('Quần soóc')">Quần soóc</a>
+                            <a type="button" class="dropdown-item" onclick="searchList('Quần dài')">Quần dài</a>
+                            <a type="button" class="dropdown-item" onclick="searchList('Quần soóc')">Quần soóc</a>
                         </div>
                     </li>
 
@@ -54,11 +54,11 @@
             </div> 
             <div class="col-sm-3">
                 <nav class="navbar navbar-expand-sm bg-light navbar-dark">
-                    <form class="form-inline" action="/action_page.php">
-                        <input type="text" name="q" placeholder="Tìm kiếm" id="text_search" class="form_search" style="width: 200px;">
-                            <button type="submit" class="header-button_submit">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
+                    <form class="form-inline">
+                        <input type="text" placeholder="Tìm kiếm sản phẩm" id="text_search" class="form_search" style="width: 200px;">
+                        <button type="button" class="header-button_submit" onclick="search()">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
                     </form>
                 </nav>
             </div>

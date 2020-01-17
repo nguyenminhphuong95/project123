@@ -11,9 +11,12 @@
 <body>
     <div id="header">
         <div class="row" style="padding: 0px 100px;">
-            <div class="col-sm -8" style="margin: auto;">
-                <h4>ADMIN PAGES</h4>
-            </div>
+            <div class="tab col-sm-8">
+                <!-- <button class="tablinks" onclick="openTab(event, 'admin-pages')">Admin Pages</button> -->
+                <button class="tablinks active" onclick="openTab(event, 'cus-order')">Quản lý đơn hàng</button>
+                <button class="tablinks" onclick="openTab(event, 'product-list')">Danh sách sản phẩm</button>
+                <!-- <button class="tablinks" onclick="openTab(event, 'cus-email')">Email khách hàng</button> -->
+              </div>
             <div class="col-sm-4" style="margin: auto;">
                 <!------------------------------------------------------------------------------------ SUPER SEARCH ----------------------------->
                 <div class="form-group-inline pull-right">
@@ -24,7 +27,14 @@
     </div>
 
 
-    <!-- --------------------------------------------------------------------------------- PRODUCLIST CONTENT------------------------------------------------------>
+
+
+    <!-- --------------------------------------------------------------------------------- Tab tổng quan tình hình web------------------------ -->
+    <!-- <div id="admin-pages" class="tabcontent" style="display: block;">
+        <h3>Tổng quan Website</h3>
+        <p>Thông tin số lượng thông số ...</p>
+    </div> -->
+    <!-- --------------------------------------------------------------------------------- PRODUCLIST CONTENT----------------------------->
     <div id="product-list" class="tabcontent">
         <div class="row">
             
@@ -88,12 +98,57 @@
         </table>
 
     </div>
+    <!-- --------------------------------------------------------------------------------- TAB QUẢN LÝ ĐƠN HÀNG -->
+    <div id="cus-order" class="tabcontent" style="display: block;">
+        <!-- <h3 style="margin-left: 20px">Quản lý đơn hàng</h3>
+        <p style="margin-left: 20px">Bảng quản lý đơn hàng</p> -->
+        <table class="table results">
+            <thead >
+                <tr class="sticky" style="background-color: white;">
+                    <th>STT</th>
+                    <th>Mã đơn hàng</th>
+                    <th>Thông tin khách hàng</th>
+                    <th>Thông tin đơn hàng</th>
+                    <th>Lưu ý</th>
+                    <th>Phương thức vận chuyển</th>
+                    <th>Phương thức thanh toán</th>
+                    <th>Trình trạng đơn hàng</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody id="listOrder">
+               
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">Số lượng đơn tồn</td>
+                    <td colspan="3" id="totalUnfinishedOrder"></td>
+                    <td colspan="2"></td>
+                </tr>
+            </tfoot>
+        </table>
 
-    <!-- ----------------------------------------------------------------------------------Form for changing product list ----------------------------------------->
+
+
+    </div>
+    
+
+    <!-- ----------------------------------------------------------------------------- TAB quản lý email khách hàng -->
+    <!-- <div id="cus-email" class="tabcontent">
+        <h3>Quản lý thông tin đăng ký theo dõi</h3>
+        <p>Bảng quản lý thông tin theo dõi</p>
+    </div> -->
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- ----------------------------------------------------------------------------------Form for changing product list -------------------->
         <!-- The modal -->
     <div id="id01" class="modal">
-        
-    
         <form class="modal-content animate" onsubmit="change()">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
             <div class="img"></div>
@@ -146,12 +201,9 @@
             </div>
         </form>    
     </div>
-    
-    <!---------------------------------------------------------------------------------Form for Add new product------------------------------------------------->
+    <!-------------------------------------------------------------------------------------Form for Add new product--------------------------->
         <!-- The modal -->
-    <div id="id02" class="modal">
-        
-      
+    <div id="id02" class="modal"> 
         <form class="modal-content animate" onsubmit="addNew()">
             <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
             <div class="img"></div>
@@ -202,11 +254,11 @@
             </div>
         </form>    
     </div>
-    <!---------------------------------------------------------------------------------Form for Add Form Excel Data------------------------------------------------->
+    <!-------------------------------------------------------------------------------------Form for Add Form Excel Data----------------------->
         <!-- The modal -->
     <div id="id03" class="modal">
         <form class="modal-content animate" onsubmit="merge()">
-            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
             <div class="img"></div>
             <div class="container">
                 <h1 style="text-align: center;">Thêm sản phẩm mới</h1>
@@ -219,6 +271,45 @@
             </div>
         </form> 
     </div>
+
+
+    <!------------------------------------------------------------------------------------------MODAL hiển thị thông tin khách hàng  -->
+    <div id="id04" class="modal">
+        <form class="modal-content animate" style="width: 40%">
+            <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <!-- <div class="img"></div> -->
+            <div class="container">
+                <h1 style="text-align: center;">Thông tin khách hàng</h1>
+                <table style="width:100%"id="cusInfo">
+                        
+                </table>
+
+
+                <!-- <button class="btn btn-success button1" type="submit" >Thêm mới</button>
+                <button class="btn btn-danger button1" type="button" onclick="document.getElementById('id03').style.display='none'">Cancel</button> -->
+            </div>
+        </form> 
+    </div>
+    
+    <!------------------------------------------------------------------------------------------MODAL hiển thị thông tin đơn hàng  -->
+    <div id="id05" class="modal">
+        <form class="modal-content animate" style="width: 40%">
+            <span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <!-- <div class="img"></div> -->
+            <div class="container" >
+                <h1 style="text-align: center; margin-bottom: 20px;" >Thông tin đơn hàng</h1>
+                <div style="width:100%" id="orderInfo"></div>
+            </div>
+        </form> 
+    </div>
+
+
+
+
+
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>

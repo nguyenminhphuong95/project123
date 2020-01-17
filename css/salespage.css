@@ -95,3 +95,40 @@ width: 100%;
     width: 10px;
     height: 10px;
 }
+#footer{
+    padding: 26px 0 25px;
+    background: #404042;
+    overflow: hidden;
+    margin-top: 30px;
+  }
+  .footer .contact .text {
+    font-size: 15px;
+    
+  }
+  .footer .tittle {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 13px ;
+  }
+  .footer .address ,.footer .link{
+    font-size: 13px;
+    display: block;
+    margin: 7px 0;
+    color: #fff !important;
+  }
+  .input-subcribe{
+    width: 80%;
+    height: 42px;
+    border-radius: 6px;
+    padding-left: 10px;
+  }
+  .nav-item:hover  button.nav-link{
+    color: #ff8109 !important;
+  }

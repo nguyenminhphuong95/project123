@@ -6,111 +6,215 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Checkout</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/checkout.css">
 </head>
 <body>
-    <div id="header">
-        <h4 style="padding: 20px;">CHECK OUT PAGE</h4>
+    <div class="header-nav row"> 
+        <div class="navbar navbar-expand-sm bg-light navbar-light row" style="width:100%;">
+            <div class="col-sm-2">
+                <a class="navbar-brand" href="index.html" style="margin-left: 20px;" onclick="categoryOpen('')">
+                    <img src="img/logo/ezgif-1-b2a76634539d.png" alt="logo" style="width: 100px;">
+                </a>
+            </div>
+
+            <div class="col-sm-7">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a type="button" class="nav-link" href="index.html" onclick="categoryOpen('')">TRANG CHỦ</a>
+                    </li>
+
+                    <li class="nav-item dropdown">                                               
+                        <a type="button" class="nav-link btn btn-outline-light dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">ÁO</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="index.html" onclick="categoryOpen('Áo khoác')">Áo khoác</a>
+                            <a class="dropdown-item" href="index.html" onclick="categoryOpen('Áo sơ mi')">Áo sơ mi</a>
+                            <a class="dropdown-item" href="index.html" onclick="categoryOpen('Áo phông')">Áo phông</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">                                               
+                        <a type="button" class="nav-link btn btn-outline-light dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">QUẦN</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="index.html" onclick="categoryOpen('Quần dài')">Quần dài</a>
+                            <a class="dropdown-item" href="index.html" onclick="categoryOpen('Quần soóc')">Quần soóc</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" onclick="categoryOpen('PHỤ KIỆN')">PHỤ KIỆN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a type="button" class="nav-link btn btn-outline-light" onclick="winScroll(10000)">LIÊN HỆ</a>
+                    </li>
+
+                </ul>                    
+            </div> 
+            
+
+        </div>    
+        
     </div>
     <div id="container-fluid">
-        <div class="row"> 
+        <form class="row" onsubmit = "newOrder()" action="index.html"> 
             <div class="col-sm-3 division"> <!--------------------------------------------------------------------THÔNG TIN KHÁCH HÀNG-->
                 <h4>CUSTOMER INFORMATION</h4>
-                <form id="cusInfo">
+               
                     <div class=".form-group">
-                        <label for="cusName">Họ và tên</label>
-                        <input type="text" id="cusName" class="form-control">
+                        <label for="cusName">Họ và tên <b style="color: red;">*</b></label>
+                        <input type="text" id="cusName" class="form-control" required>
                     </div> 
                     <div class=".form-group">
-                        <label for="cusEmail">Email</label>
-                        <input type="text" id="cusEmail" class="form-control">
+                        <label for="cusEmail">Email <b style="color: red;">*</b></label>
+                        <input type="text" id="cusEmail" class="form-control" required>
                     </div> 
                     <div class=".form-group">
-                        <label for="cusPhone">Số điện thoại</label>
-                        <input type="number" id="cusPhone" class="form-control">
+                        <label for="cusPhone">Số điện thoại <b style="color: red;">*</b></label>
+                        <input type="number" id="cusPhone" class="form-control" required>
                     </div> 
                     <div class=".form-group">
                         <label for="cusComment">Lưu ý</label>
                         <textarea type="text" id="cusComment" class="form-control"></textarea>
                     </div> 
-                </form>
+              
                 
             </div>
                                   
             <div class="col-sm-3 division"> <!--------------------------------------------------------------------PHương thức-->
-                <div class="row">
-                    <h4>PHƯƠNG THỨC NHẬN HÀNG</h4>
-                    <form id="DeliveryMethod">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio">Giao hàng tận nơi            
-                            </label>
-                        </div>
-                        
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio">Giữ tại cửa hàng
-                            </label>
-                        </div>
-        
-                        <div class=".form-group">
-                            <label for="cus">Địa chỉ nhận hàng</label>
-                            <input type="text" id="cus" class="form-control">
-                        </div>
-                    </form>
-                </div>
                 
-                <div class="row"  style="margin-top: 50px;">
-                    <h4>PHƯƠNG THỨC THANH TOÁN</h4>
-                    <form id="PaymentMethod">    
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio">Thanh toán khi nhận hàng            
-                            </label>
-                        </div>
-        
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio">
-                                <img class="logo" src="img/logo/logo-zaloPay.png" alt="ZaloPay">
-                                Cổng thanh toán ZaloPay         
-                            </label>
-                        </div>
+                <h4>PHƯƠNG THỨC NHẬN HÀNG <b style="color: red;">*</b></h4>
+                
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="deliMethod" value="Giao hàng" required>Giao hàng tận nơi            
+                        </label>
+                    </div>
+                    
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="deliMethod" value="Giữ hàng">Giữ tại cửa hàng
+                        </label>
+                    </div>
+    
+                    <div class=".form-group">
+                        <label for="cusAddress">Địa chỉ nhận hàng <b style="color: red;">*</b></label>
+                        <textarea type="text" id="cusAddress" class="form-control" rows="3" required></textarea>
+                    </div>
+              
+            
+            
+            
+                <h4 style="margin-top: 50px;">PHƯƠNG THỨC THANH TOÁN <b style="color: red;">*</b></h4>
+               
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="payMethod" value="COD" required>Thanh toán khi nhận hàng            
+                        </label>
+                    </div>
+    
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="payMethod" value="ZaloPay">
+                            <img class="logo" src="img/logo/logo-zaloPay.png" alt="ZaloPay">
+                            Cổng thanh toán ZaloPay         
+                        </label>
+                    </div>
 
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio">
-                                <img class="logo" src="img/logo/logo-VNPAY.png" alt="VNPAY">       
-                                Thanh toán qua VNPAY   
-                            </label>
-                        </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="payMethod" value="VNPAY">
+                            <img class="logo" src="img/logo/logo-VNPAY.png" alt="VNPAY">       
+                            Thanh toán qua VNPAY   
+                        </label>
+                    </div>
 
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio">
-                                <img class="logo" src="img/logo/logo-momo.png" alt="Momo">
-                                Thanh toán qua ví Momo            
-                            </label>
-                        </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="payMethod" value="Momo">
+                            <img class="logo" src="img/logo/logo-momo.png" alt="Momo">
+                            Thanh toán qua ví Momo            
+                        </label>
+                    </div>
                        
 
-                    </form>
-                </div>
+                  
+                
             </div>
 
             <div class="col-sm-6 division" style="border: none;"> <!--------------------------------------------------------------------Giỏ hàng-->
                 <h4>GIỎ CỦA BẠN</h4>
-                <form id="shoppingCart" class="form-group" onsubmit="alert('Đặt hàng thành công')" >
+                <div id="shoppingCart" class="form-group"  >
                     <div class="container" id="cart-body">    
                     </div>
-                    <button type="submit" class="btn btn-success btn-lg col-sm-12" >Đặt hàng và thanh toán</button>
                 </div>
+                <button type="submit" class="btn btn-success btn-lg col-sm-12" >Đặt hàng và thanh toán</button>
 
             </div>
 
+        </form>
+    </div>
+
+    <div id="footer" class="footer">
+        <div class="container" style="padding: 0px 100px; width: 100%; max-width: 100%;">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div id="contact">
+                        <h3 class="tittle">THÔNG TIN LIÊN HỆ</h3>
+                        <p class="address row">Cửa hàng của chúng tôi</p>
+                        <a class="address row" style="color:white">
+                            <span style="margin: 0px 5px;">
+                                <i class='fas fa-map-marker-alt'></i> 
+                            </span> 120 Xã đàn, Đống Đa, Hà Nội.
+                        </a>
+                        <a class="address row" style="color:white">
+                            <span style="margin: 0px 5px;">
+                                <i class='fas fa-map-marker-alt'></i> 
+                            </span>229 Thái Hà, Đống Đa, Hà Nội.
+                        </a>
+                        <a class="address row" style="color:white">
+                            <span style="margin: 0px 5px;">
+                                <i class='fas fa-map-marker-alt'></i> 
+                            </span>1001 Đường Láng Đống Đa, Hà Nội.
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div>
+                        <h3 class="tittle" >VỀ CHÚNG TÔI</h3>
+                        <a class="link">Fanpage cộng đồng SHOPLOVE</a> 
+                        <a class="link">Bài báo về SHOPLOVE</a> 
+                        <a class="link">Chính sách bảo mật</a> 
+                        <a class="link">Tuyển dụng</a> 
+                        <a class="link">Chính sách đổi trả</a> 
+                        <a class="link">Chính sách khách hàng thân thiết</a> 
+                        <a class="link">Hướng dẫn mua hàng</a> 
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div>
+                        <h3 class="tittle">ĐĂNG KÝ NHẬN THÔNG BÁO</h3>
+                        <p class="text">Đăng ký nhận thông tin khuyến mãi và cập nhật sản phẩm mới nhất từ LOVESHOP</p>
+                        <form class="form-subcribe">
+                            <div class="row" style="margin: 0px 0px">
+                                <input type="text" id="email_newsletter" class="input-subcribe" placeholder="Nhập địa chỉ email tại đây">
+                                <button class="btn btn-danger" style="height: 42px; vertical-align: auto;">Gửi</i></button>
+                            </div>
+                             <p class="text">EMAIL liên hệ: info@loveshop.com</p>
+                        </form>
+                        <p class="text">Công ty cổ phần thời trang LOVESHOP</p>
+                        <p class="text">Tổ 20, đường Huỳnh Thúc Kháng, p Nhân Chính, Q Thanh Xuân, TP Hà Nội</p>
+                        <p class="text">MST: 0123654312</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div id="footer"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="js/checkout.js"></script>
 </body>
 </html>

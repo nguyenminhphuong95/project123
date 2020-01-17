@@ -7,7 +7,12 @@ window.onload = searchCate();
 
 // --------------------------------------------------------------------------------------HÀM LƯU TRỮ
 function getList(a) {
-    return JSON.parse(localStorage[`${a}`]);
+  if (localStorage[`${a}`] !== undefined) {
+		return JSON.parse(localStorage[`${a}`]);
+	} else{
+		return [];
+	}
+
 }
 function save(a,b) {
   let save = JSON.stringify(b,null,2);
@@ -142,3 +147,21 @@ function displayItems(a) {
     
   
 } 
+
+//-------------------------------------------------------------------------------------------------------SEARCH
+ function search () {
+   let search = document.getElementById("text_search").value
+   let x = [];
+   for (let i = 0; i < listProduct.length; i++) {
+     const e = listProduct[i];
+     if( e['name'].toLowerCase().includes(search.toLowerCase())) {
+       x.push(e);
+     }
+   }
+   if (search == ""){
+     x = listProduct;
+ 
+   }
+   displayItems(x);
+   window.scrollTo(0,1080);
+ }

@@ -9,7 +9,6 @@ window.onload = run();
 
 function run() { // ----------------------------------------------------------Sửa lại khi nhận được thông itn đầu vào
 	let itemNo = JSON.parse(localStorage.getItem("itemOpen"));
-	console.log(itemNo);
 	
 	loadItem(itemNo);
 	displayItem();
@@ -89,8 +88,13 @@ function displayItem (item){
 	
 	// Hiển thị ô kick thước
 	let size="";
-	if (itemLoad["description"].toLowerCase().includes("size s" || "size m" || "size l") ) {
+	if (itemLoad["description"].toLowerCase().includes("size xs" || "size s" || "size m" || "size l") ) {
 		size = "<B>Kích thước</B><br>"
+	}
+	if (itemLoad.description.toLowerCase().includes("size xs")) {
+		size += `
+		<button type="button" class="btn btn-outline-light text-dark">XS</button>
+		`;
 	}
 	if (itemLoad.description.toLowerCase().includes("size s")) {
 		size += `
@@ -107,6 +111,7 @@ function displayItem (item){
 		<button type="button" class="btn btn-outline-light text-dark">L</button>
 		`;
 	}
+	
 	document.getElementById("size").innerHTML = size+"<br><br>";
 }
 
@@ -114,7 +119,11 @@ function displayItem (item){
 // --------------------------------------------------------------------------------THÊM SẢN PHẨM VÀO GIỎ HÀNG
 cartItem = getList("cartItem");
 function getList(a) {
-    return JSON.parse(localStorage[`${a}`]);
+	if (localStorage[`${a}`] !== undefined) {
+		return JSON.parse(localStorage[`${a}`]);
+	} else{
+		return [];
+	}
 }
 function save(a,b) {
     let save = JSON.stringify(b,null,2);
@@ -153,3 +162,8 @@ function compressCart() {
       }
     }
 }
+
+function winScroll(a) {
+	window.scrollTo(0,a);
+  }
+  

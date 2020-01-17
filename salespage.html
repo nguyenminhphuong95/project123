@@ -20,7 +20,7 @@
     <div class="header-nav row" style="padding: 0.5rem 1rem; ">                                            <!-- Brand/logo -->
 
         <div class="col-sm-2">
-            <a class="navbar-brand" href="#" style="margin-left: -5px; margin-top: 2px">
+            <a class="navbar-brand" href="index.html" style="margin-left: -5px; margin-top: 2px" onclick="categoryOpen('')">
                 <img src="img/logo/ezgif-1-b2a76634539d.png" alt="logo" style="width: 100px;">
             </a>
         </div>
@@ -53,21 +53,12 @@
                     <a class="nav-link" href="index.html" onclick="categoryOpen('PHỤ KIỆN')">PHỤ KIỆN</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" >LIÊN HỆ</a>
+                    <a  type="button" class="nav-link" onclick="winScroll(1000000)">LIÊN HỆ</a>
                 </li>
     
             </ul>                    
         </div> 
-        <div class="col-sm-3">
-            <nav class="navbar navbar-expand-sm bg-light navbar-dark">
-                <form class="form-inline" action="/action_page.php">
-                    <input type="text" name="q" placeholder="Tìm kiếm" id="text_search" class="form_search" style="width: 200px;">
-                        <button type="submit" class="header-button_submit">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </button>
-                </form>
-            </nav>
-        </div>    
+         
         
       </div>
     <div class="container">       
@@ -159,6 +150,62 @@
 
             </div>
     </div> 
+    <div id="footer" class="footer">
+        <div class="container" style="padding: 0px 100px; width: 1519.2px; margin-top: 0px">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div id="contact">
+                        <h3 class="tittle">THÔNG TIN LIÊN HỆ</h3>
+                        <p class="address row">Cửa hàng của chúng tôi</p>
+                        <a class="address row" style="color:white">
+                            <span style="margin: 0px 5px;">
+                                <i class='fas fa-map-marker-alt'></i> 
+                            </span> 120 Xã đàn, Đống Đa, Hà Nội.
+                        </a>
+                        <a class="address row" style="color:white">
+                            <span style="margin: 0px 5px;">
+                                <i class='fas fa-map-marker-alt'></i> 
+                            </span>229 Thái Hà, Đống Đa, Hà Nội.
+                        </a>
+                        <a class="address row" style="color:white">
+                            <span style="margin: 0px 5px;">
+                                <i class='fas fa-map-marker-alt'></i> 
+                            </span>1001 Đường Láng Đống Đa, Hà Nội.
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div>
+                        <h3 class="tittle" >VỀ CHÚNG TÔI</h3>
+                        <a class="link">Fanpage cộng đồng SHOPLOVE</a> 
+                        <a class="link">Bài báo về SHOPLOVE</a> 
+                        <a class="link">Chính sách bảo mật</a> 
+                        <a class="link">Tuyển dụng</a> 
+                        <a class="link">Chính sách đổi trả</a> 
+                        <a class="link">Chính sách khách hàng thân thiết</a> 
+                        <a class="link">Hướng dẫn mua hàng</a> 
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div>
+                        <h3 class="tittle">ĐĂNG KÝ NHẬN THÔNG BÁO</h3>
+                        <p class="text">Đăng ký nhận thông tin khuyến mãi và cập nhật sản phẩm mới nhất từ LOVESHOP</p>
+                        <form class="form-subcribe">
+                            <div class="row" style="margin: 0px 0px">
+                                <input type="text" id="email_newsletter" class="input-subcribe" placeholder="Nhập địa chỉ email tại đây">
+                                <button class="btn btn-danger" style="height: 42px; vertical-align: auto;">Gửi</i></button>
+                            </div>
+                             <p class="text">EMAIL liên hệ: info@loveshop.com</p>
+                        </form>
+                        <p class="text">Công ty cổ phần thời trang LOVESHOP</p>
+                        <p class="text">Tổ 20, đường Huỳnh Thúc Kháng, p Nhân Chính, Q Thanh Xuân, TP Hà Nội</p>
+                        <p class="text">MST: 0123654312</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <script src="js/salespage.js"></script>
 </body>
 
