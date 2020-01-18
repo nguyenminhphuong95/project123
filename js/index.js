@@ -6,6 +6,7 @@ let category ="";
 
 listProduct = getList("listProduct");
 window.onload = searchCate();
+window.onload = displayItems(listProduct);
 
 // --------------------------------------------------------------------------------------HÀM LƯU TRỮ
 function getList(a) {
