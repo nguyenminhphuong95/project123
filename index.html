@@ -49,6 +49,9 @@
                     <li class="nav-item">
                         <button class="nav-link btn btn-outline-light" onclick="winScroll(10000)">LIÊN HỆ</button>
                     </li>
+                    <li class="nav-item">
+                        <button class="nav-link btn btn-outline-light" onclick="document.getElementById('id01').style.display='block'; displayMiniCartItems();" >GIỎ CỦA BẠN</button>
+                    </li>
 
                 </ul>                    
             </div> 
@@ -140,6 +143,26 @@
                 </div>
             </div>
         </div>
+    </div>
+
+
+
+    <!---------------------------------------------------------------------------------------------------------- Modal giỏ hàng -->
+    <div id="id01" class="modal" style="color: rgb(95, 95, 95);">
+        <form class="modal-content animate" style="width: 60%">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <!-- <div class="img"></div> -->
+            <div class="container" >
+                <h3 style="text-align: center; margin-bottom: 20px;"> <b>GIỎ CỦA BẠN</b></h3>
+                
+                <div style="width:100%" id="miniCart"></div>
+            </div>
+            <div class="row" style="margin-top: 25px;">
+                <a type="button" class="btn btn-success" href="checkout.html" style="display: inline-block;color: #fff; margin: auto; width: 48%;">Xem chi tiết</a>
+                <a type="button" class="btn btn-danger" onclick="document.getElementById('id01').style = 'none';" style="display: inline-block; color: #fff; margin: auto; width: 48%;">Thoát</a>
+
+            </div>
+        </form> 
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

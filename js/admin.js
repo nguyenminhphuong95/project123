@@ -315,7 +315,7 @@ function displaylistOrder() {
     let numberProduct = 0;
     for (let j = 0; j < e["cusCart"].length; j++) {
       const element = e["cusCart"][j];
-      numberProduct += element.quantity;
+      numberProduct += Number(element.quantity);
     }
     listOrder +=
     `

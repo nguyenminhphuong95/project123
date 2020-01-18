@@ -53,9 +53,11 @@
                     <a class="nav-link" href="index.html" onclick="categoryOpen('PHỤ KIỆN')">PHỤ KIỆN</a>
                 </li>
                 <li class="nav-item">
-                    <a  type="button" class="nav-link" onclick="winScroll(1000000)">LIÊN HỆ</a>
+                    <a  type="button"  class="nav-link" onclick="winScroll(1000000)">LIÊN HỆ</a>
                 </li>
-    
+                <li class="nav-item">
+                    <a type="button" href="#" class="nav-link" onclick="document.getElementById('id01').style.display='block'; displayMiniCartItems();" >GIỎ CỦA BẠN</button>
+                </li>
             </ul>                    
         </div> 
          
@@ -133,7 +135,7 @@
                         </div>
                     </div>
                     <br>
-                    <a type="button" class="btn btn-info active btn-lg btn-block" onclick="addToCart()" href="checkout.html" target="_blank"> 
+                    <a type="button" class="btn btn-info active btn-lg btn-block" onclick="addToCart()" href="#"> 
                         THÊM VÀO GIỎ HÀNG
                     </a>
                     <br>
@@ -207,6 +209,24 @@
                 </div>
             </div>
         </div>
+    </div>
+    
+    <!---------------------------------------------------------------------------------------------------------- Modal giỏ hàng -->
+    <div id="id01" class="modal" style="padding-top: 60px;">
+        <form class="modal-content animate" style="width: 60%">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            
+            <div class="container" style="width: 100%; margin-top: 0px;">
+                <h3 style="text-align: center; margin-bottom: 20px; margin-top: 0px; font-size: 28px;"> <b>GIỎ CỦA BẠN</b></h3>
+                
+                <div style="width:100%" id="miniCart"></div>
+            </div>
+            <div class="row" style="margin-top: 25px; margin-left: 0px;margin-right: -30px;">
+                <a type="button" class="btn btn-success" href="checkout.html" style="display: inline-block;color: #fff; margin: auto; width: 48%;">Xem chi tiết</a>
+                <a type="button" class="btn btn-danger" onclick="document.getElementById('id01').style = 'none';" style="display: inline-block; color: #fff; margin: auto; width: 48%;">Thoát</a>
+
+            </div>
+        </form> 
     </div>
 <script src="js/salespage.js"></script>
 </body>

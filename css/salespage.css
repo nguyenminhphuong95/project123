@@ -132,3 +132,59 @@ width: 100%;
   .nav-item:hover  button.nav-link{
     color: #ff8109 !important;
   }
+
+  /* modal content box */
+.modal-content{
+  background-color: #fefefe;
+  margin: 5px auto;
+  border: 1px solid #888;
+  width: 60%;
+  padding: 20px;
+}
+
+.close { /* Position top right outside modal*/
+  position: absolute;
+  right: 22px;
+  top 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+.close:hover, /*Close btn on hover*/
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+.modal input[type=text], input[type=number]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+}
+
+.modal .btn-outline-danger:hover {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.modal .btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+
+  color: red;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.modal .btn-outline-danger {
+  border: 1px solid red;
+  background-color: #fff;
+}
+html {
+  scroll-behavior: smooth;
+}

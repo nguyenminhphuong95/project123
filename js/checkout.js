@@ -1,9 +1,11 @@
-let cusOrder[i].cusCart = [];
-let listProduct = [];
 let cusOrders = [];
-listProduct = getList("listProduct");
-cusOrder[i].cusCart = getList("cartItem");
 cusOrders = getList("cusOrders");
+
+let cusCart = [];
+cusCart = getList("cartItem");
+
+let listProduct = [];
+listProduct = getList("listProduct");
 // cusOrders.pop();
 // cusOrders.pop();
 // cusOrders.pop();
@@ -13,7 +15,7 @@ cusOrders = getList("cusOrders");
 
 
 console.log(listProduct);
-console.log(cusOrder[i].cusCart);
+console.log(cusCart);
 console.log(cusOrders);
 
 
@@ -42,8 +44,8 @@ function save(a,b) {
 function displayCartItems(){
     let cartRows="";
     let totalSum = 0;
-    for (let i = 0; i < cusOrder[i].cusCart.length; i++) {
-        const e = cusOrder[i].cusCart[i];
+    for (let i = 0; i < cusCart.length; i++) {
+        const e = cusCart[i];
         let name = searchCartItem(e.no,"name");
         let price = searchCartItem(e.no,"price");
         let discount = searchCartItem(e.no,"discount");
@@ -104,9 +106,9 @@ function changeQuantity(a){
     oldSum = parseInt(convertTextToNumber(oldSum));
     oldTotalVAT = parseInt(convertTextToNumber(oldTotalVAT));
  
-    cusOrder[i].cusCart[a].quantity = Number(document.getElementById(`cart-item-quantity${a}`).value);
-    let price = searchCartItem(cusOrder[i].cusCart[a].no,"price");
-    let newSum = cusOrder[i].cusCart[a].quantity * price;
+    cusCart[a].quantity = Number(document.getElementById(`cart-item-quantity${a}`).value);
+    let price = searchCartItem(cusCart[a].no,"price");
+    let newSum = cusCart[a].quantity * price;
 
     // change sum từng dòng
     document.getElementById(`sum${a}`).innerHTML = `${format_curency(newSum)}đ`;
@@ -121,7 +123,7 @@ function changeQuantity(a){
     document.getElementById(`totalSum`).innerHTML = format_curency(newTotalVAT)+"đ";
     console.log("newTotalVAT = "+newTotalVAT);
     
-    save("cartItem",cusOrder[i].cusCart);    
+    save("cartItem",cusCart);    
 
     
 }
@@ -138,9 +140,9 @@ function format_curency(x) {
 
 // ------------------------------------------------------------------------------------------XÓA KHỎI GIỎ HÀNG
 function remove_cart_item(i) {
-    cusOrder[i].cusCart.splice(i,1);
+    cusCart.splice(i,1);
     displayCartItems();
-    save("cartItem",cusOrder[i].cusCart);
+    save("cartItem",cusCart);
 }
 
 function convertTextToNumber (str){
@@ -187,15 +189,15 @@ function newOrder() {
         "deliMethod": $("input[name=deliMethod]:checked").val(),
         "payMethod": $("input[name=payMethod]:checked").val(),
         "status": "chưa hoàn thành",
-        "cusCart": cusOrder[i].cusCart,
+        "cusCart": cusCart,
     };
     cusOrders.push(newOrder);
     console.log(cusOrders);
     alert("Quý khách đã đặt hàng thành công. Xin trân trọng cảm ơn.");
     save("cusOrders",cusOrders);
 
-    cusOrder[i].cusCart=[];
-    save("cartItem",cusOrder[i].cusCart);
+    cusCart=[];
+    save("cartItem",cusCart);
 
     
 
