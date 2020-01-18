@@ -70,7 +70,23 @@ function format_curency(x) {
 // -----------------------------------------------------------------------------------------Thay thế thông tin hiển thị
 function displayItem (item){
 	document.getElementById("name").innerHTML = "<b>"+itemLoad.name+"</b>";
-	document.getElementById("price").innerHTML = "<b>"+format_curency(itemLoad.price)+"</b>";
+	console.log(itemLoad.discount);
+	
+	
+	//price
+	if (itemLoad.discount == 0) {
+		document.getElementById("price").innerHTML = `<h2 class="price" id="price"><b>${format_curency(itemLoad.price)}</b></h2><br>`;
+	
+	} else {
+		let newPrice = itemLoad.price * ( 1 - (itemLoad.discount/100));
+		document.getElementById("price").innerHTML = `
+		<h2 class="price" id="price"><b>${format_curency(newPrice)}</b></h2>
+		<h4 class="price" style="text-decoration: line-through; color: rgb(119, 119, 119);">Giá gốc: ${format_curency(itemLoad.price)}</h4>
+		
+		`
+	}
+
+
 	document.getElementById("description").innerHTML = itemLoad.description;
 	let displayImg = `
 		<div class="item active">

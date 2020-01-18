@@ -83,7 +83,6 @@ function searchList(a) {
 //---------------------------------------------------------------------------------------- Hiện thị ảnh theo phân loại
 function searchCate() {
   category = getList("categoryOpen");
-  console.log(category);
   
   let x = [];
   for (let i = 0; i < listProduct.length; i++) {
@@ -114,15 +113,31 @@ function displayItems(a) {
     for (let j = i; j < i+4; j++) {
       const e = a[j];
       if (j<a.length) {
-        item +=`
-        <a class="col-sm" href="salespage.html" target="_blank" onclick="openPage('${e.no}')">
-          <div class="items-img banner">
-              <img src="img/product/${e.no}.1.jpg">
-          </div>
-            <p class="name">${e.name}</p>
-            <p class="price">${format_currency(e.price)}đ</p>
-        </a>
-        `  
+        let newPrice = e.price * ( 1 - (e.discount/100));
+
+        if(e.discount ==0) {
+          item +=`
+          <a class="col-sm" href="salespage.html" target="_blank" onclick="openPage('${e.no}')">
+            <div class="items-img banner">
+                <img src="img/product/${e.no}.1.jpg">
+            </div>
+              <p class="name">${e.name}</p>
+              <p class="price">${format_currency(e.price)}đ</p>
+          </a>
+          `  
+        } else {
+          item +=`
+          <a class="col-sm" href="salespage.html" target="_blank" onclick="openPage('${e.no}')">
+            <div class="items-img banner">
+                <img src="img/product/${e.no}.1.jpg">
+            </div>
+              <p class="name">${e.name}</p>
+              <p class="price">${format_currency(newPrice)}đ  <span style="text-decoration: line-through; color: rgb(119, 119, 119); font-weight: 200">(${format_currency(e.price)}đ)</span></p>
+          </a>
+          `
+        }
+
+
       } else {
         item +=`
         <div class="col-sm">

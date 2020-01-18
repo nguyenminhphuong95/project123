@@ -173,3 +173,6 @@ transition: transform .6s ease;
   overflow: hidden;
 }
 
+a:hover {
+  text-decoration: none;
+}
