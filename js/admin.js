@@ -9,7 +9,7 @@ var indexChange;
 
 //load wweb
 cusOrders = getList("cusOrders");
-listProduct= getList("listProduct");
+// listProduct= getList("listProduct");
 
 
 
